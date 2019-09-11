@@ -1,0 +1,72 @@
+body{
+    padding: 0px 0px;
+    margin: 0px 0px;
+    background-image: url("../../assets/GUS3.jpg");
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position-y: 95px;
+}
+.header{
+    width: auto;
+    border: 1px solid black;
+    background: grey;
+    overflow: auto;
+    padding: 0px 20%;
+    font-size: 36px;  
+    line-height: 0%;
+    font-weight: bold;
+}
+main{
+    padding: 0px 20%;
+}
+h2{
+    margin-block-start: 6px;
+}
+h4{
+    font-weight: bolder;
+    font-family: 'Lucida Sans', sans-serif;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+.Contentbox{
+    width: 99.5%;
+    border: 1px solid black;
+    margin: 0px 0px 12px 0px;
+    padding: 6px 0px 12px 6px;
+    height: 100px;
+}
+ul{
+    margin: 0px;
+    padding: 0px;
+}
+.stuff{
+    font-size: 26px;
+    font-weight: bold;
+    padding: 0px 0px 4px 0px;
+}
+.more{
+    width: auto;
+    border: 1px solid black;
+    list-style: none;
+    margin: 0px 0px 12px 0px;
+    padding: 6px;
+}
+button{
+    border: 1px solid black;
+    background: lightgrey;
+    width: fit-content;
+    padding: 0px 18px;
+    border-radius: 8px;
+    font-size: 18px; 
+}
+.more p{
+    margin: 0px 0px 0px 4px;
+}
+.input{
+    margin: 0px 0px 12px 0px;
+    color: lightgrey;
+}
+.label{
+    font-size: 18px;
+    font-weight: bold;
+}

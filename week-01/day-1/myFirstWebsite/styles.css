@@ -1,0 +1,66 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-image: url("assets/topography.png");
+	font-family: 'Montserrat', sans-serif;
+}
+nav{
+	width: 100%;
+	background-color: #333333;
+	overflow: auto;
+}
+img {
+	width: auto;
+	height: 54px;
+}
+.logo{
+	position:absolute;
+	padding-left: 10%;
+}
+ul{
+	margin: 0;
+	padding: 0 10% 0 0;
+}
+ul > li {
+	float:right;
+	list-style: none;
+}
+nav a {
+	display: block;
+  	color: #ff0099;
+  	text-align: center;
+	text-decoration: underline;
+	text-transform: uppercase;
+	padding: 18px 18px 18px 24px;;
+	font-family: consolas;
+}
+nav a:hover {
+	background: darkslateblue;
+	transition: 0.5s;
+}
+#separator{
+	text-align: center;
+	letter-spacing: 8px;
+	padding-top: 24px;
+}
+.Important {
+	padding: 10%;
+}
+h1{
+	font-size: 64px;
+	line-height: 0;
+	padding-bottom: 24px;
+}
+#Myself{
+	color: #ff0099;
+}
+main p{
+	font-size: 22px;
+}
+h2{
+	text-align: center;
+	font-size: 48px;
+}
+h3{
+	font-size: 36px;
+}
