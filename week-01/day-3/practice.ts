@@ -17,3 +17,12 @@ let myHeight: number = 1.71;
 console.log(myName);
 console.log(myAge);
 console.log(myHeight);
+
+
+let x: number = 22;
+let y: number = 13;
+console.log(y + x);
+console.log(y - x);
+console.log(x * y);
+console.log(x / y);
+console.log(x % y);
