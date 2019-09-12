@@ -64,3 +64,12 @@ b = 123;
 
 console.log(a);
 console.log(b);
+
+let massInKg: number = 81.2;
+let heightInM: number = 1.78;
+let heightInM2: number = heightInM*heightInM;
+
+// Print the Body mass index (BMI) based on these values
+
+let BMI: number = (massInKg/heightInM2)
+console.log(BMI)
