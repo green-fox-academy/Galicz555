@@ -165,3 +165,15 @@ let surfaceArea: number = (2 * (a * b + b * c + a * c));
 let volume: number = (a * b * c);
 console.log("Surface Area: " + surfaceArea);
 console.log("Volume: "+ volume);
+
+let currentHours: number = 14;
+let currentMinutes: number = 34;
+let currentSeconds: number = 42;
+
+// Write a program that prints the remaining seconds (as an integer) from a
+// day if the current time is represented by these variables
+
+let currentOverallSeconds: number = (currentSeconds + currentMinutes * 60 + currentHours * 60 ** 2);
+let currentLeftOverSeconds: number = (24 * 60 **2 - currentOverallSeconds);
+
+console.log(currentLeftOverSeconds);
