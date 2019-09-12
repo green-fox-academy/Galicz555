@@ -81,7 +81,7 @@ console.log(BMI)
 // Your height in meters as a number
 // Whether you are married or not as a boolean
 
-*/
+
 
 let myName: string = "Galicz Mihály";
 let myAge: number = 29;
@@ -150,3 +150,18 @@ let k: boolean = (j / 3 === 0 || j / 5 === 0)
 console.log(k)
 // tell if j is divisible by 3 or 5 (as a boolean)
 
+*/
+
+// Write a program that stores 3 sides of a cuboid as variables (floats)
+// The program should write the surface area and volume of the cuboid like:
+//
+// Surface Area: 600
+// Volume: 1000
+
+let a: number = 4.5;
+let b: number = 2.7;
+let c: number = 9.8;
+let surfaceArea: number = (2 * (a * b + b * c + a * c));
+let volume: number = (a * b * c);
+console.log("Surface Area: " + surfaceArea);
+console.log("Volume: "+ volume);
