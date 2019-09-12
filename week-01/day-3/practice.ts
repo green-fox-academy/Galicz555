@@ -1,3 +1,4 @@
+/*
 // 2nd excercise
 
 console.log('Humpty Dumpty sat on a wall,');
@@ -73,3 +74,21 @@ let heightInM2: number = heightInM*heightInM;
 
 let BMI: number = (massInKg/heightInM2)
 console.log(BMI)
+
+// Define several things as a variable, then print their values
+// Your name as a string
+// Your age as a number
+// Your height in meters as a number
+// Whether you are married or not as a boolean
+
+*/
+
+let myName: string = "Galicz Mihály";
+let myAge: number = 29;
+let myHeight: number = 1.71;
+let married: boolean = false;
+
+console.log(myName);
+console.log(myAge);
+console.log(myHeight);
+console.log(married);
