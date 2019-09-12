@@ -53,3 +53,14 @@ console.log(percentage);
 let favoriteNumber: number = 5;
 
 console.log("'My favorite number is: " + favoriteNumber +"'");
+
+// Swap the values of these variables
+let a: number = 123;
+let b: number = 526;
+
+a = 526;
+b = 123;
+
+
+console.log(a);
+console.log(b);
