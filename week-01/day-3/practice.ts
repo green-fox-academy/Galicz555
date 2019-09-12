@@ -150,7 +150,6 @@ let k: boolean = (j / 3 === 0 || j / 5 === 0)
 console.log(k)
 // tell if j is divisible by 3 or 5 (as a boolean)
 
-*/
 
 // Write a program that stores 3 sides of a cuboid as variables (floats)
 // The program should write the surface area and volume of the cuboid like:
@@ -177,3 +176,74 @@ let currentOverallSeconds: number = (currentSeconds + currentMinutes * 60 + curr
 let currentLeftOverSeconds: number = (24 * 60 **2 - currentOverallSeconds);
 
 console.log(currentLeftOverSeconds);
+
+*/
+
+
+let a: number = 24;
+let out: number = 0;
+// if a is even increment out by one
+if (a % 2 === 0 ) {
+    out++;
+}
+console.log(out);
+
+
+let b: number = 13;
+let out2: string = '';
+// if b is between 10 and 20 set out2 to "Sweet!"
+// if less than 10 set out2 to "Less!",
+// if more than 20 set out2 to "More!"
+
+if ( b > 10 && b < 20 ) {
+    out2 = "Sweet!";
+    console.log(out2);
+} else if ( b < 10 ) {
+    out2 = "Less!";
+    console.log(out2);
+} else if ( b > 20) {
+    out2 = "More!";
+    console.log(out2);
+}
+
+
+
+
+let c: number = 123;
+let credits: number = 100;
+let isBonus: boolean = false;
+
+// if credits are at least 50,
+// and is_bonus is false decrement c by 2
+// if credits are smaller than 50,
+// and is_bonus is false decrement c by 1
+// if is_bonus is true c should remain the same
+
+if (credits >= 50 && isBonus) {
+    c - 2;
+    console.log(c);
+} else if (credits < 50 && isBonus) {
+    c--;
+    console.log(c);
+} else if (isBonus !== false) {
+    console.log(c);
+}
+
+
+
+/*
+
+let d: number =  8;
+let time: number = 120;
+let out3: string = '';
+
+// if d is dividable by 4
+// and time is not more than 200
+// set out3 to "check"
+// if time is more than 200
+// set out3 to "Time out"
+// otherwise set out3 to "Run Forest Run!"
+
+console.log(out3);
+
+*/
