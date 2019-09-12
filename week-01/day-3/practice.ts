@@ -8,3 +8,12 @@ console.log('Couldn\'t put Humpty together again.');
 console.log("Hello, Daniel!");
 console.log("Hello, Gábor");
 console.log("Hello Kriszti");
+
+/*
+mfskjnfaosdnfksafnksnfsfn
+*/
+
+console.log('Hello, World!');
+console.log(42);
+console.log(3.123123123);
+console.log(true);
