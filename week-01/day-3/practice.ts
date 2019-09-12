@@ -17,3 +17,7 @@ console.log('Hello, World!');
 console.log(42);
 console.log(3.123123123);
 console.log(true);
+
+console.log(42); // Prints 42
+console.log(-1); // Prints -1
+console.log(0); // Prints 0
