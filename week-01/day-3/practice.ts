@@ -288,7 +288,7 @@ let x: number = 3;
 for (let i: number = 0; i <=10; i++){
     console.log(i * x);
 }
-*/
+
 
 // Write a program that calculates the sum and the average from 1 to a given number.
 // Example input: 5
@@ -298,4 +298,21 @@ let x: number = 5;
 
 for(let i: number = 1; i < 100 ; i++) {
     console.log("Sum: " + [i + x] + ", Average: " + [(i + x) / x ]);
+}
+*/
+
+// Write a program that prints the numbers from 1 to 100.
+// But for multiples of three print “Fizz” instead of the number
+// and for the multiples of five print “Buzz”.
+// For numbers which are multiples of both three and five print “FizzBuzz”.
+
+for(let i: number = 1; i <= 100; i++) {
+    if( i % 3 == 0 && i % 5 == 0) {
+        console.log('"Fizz"');
+    }   else if(i % 5 == 0) {
+        console.log('"Buzz"');
+    }   else if( i % 3 == 0){
+        console.log('"FizzBuzz"');
+    }
+    console.log(i);
 }
