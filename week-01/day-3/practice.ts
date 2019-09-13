@@ -299,7 +299,7 @@ let x: number = 5;
 for(let i: number = 1; i < 100 ; i++) {
     console.log("Sum: " + [i + x] + ", Average: " + [(i + x) / x ]);
 }
-*/
+
 
 // Write a program that prints the numbers from 1 to 100.
 // But for multiples of three print “Fizz” instead of the number
@@ -315,4 +315,23 @@ for(let i: number = 1; i <= 100; i++) {
         console.log('"FizzBuzz"');
     }
     console.log(i);
+}
+
+*/
+
+
+let lineCount: number = 4;
+let starString: string = '*'
+// Write a program that draws a triangle like this:
+//
+// *
+// **
+// ***
+// ****
+//
+// The triangle should have as many lines as lineCount is
+
+for (let i = 1; i <= lineCount; i++){
+    console.log(starString);
+    starString += '*';
 }
