@@ -177,7 +177,7 @@ let currentLeftOverSeconds: number = (24 * 60 **2 - currentOverallSeconds);
 
 console.log(currentLeftOverSeconds);
 
-*/
+
 
 
 let a: number = 24;
@@ -211,7 +211,7 @@ if ( b > 10 && b < 20 ) {
 
 let c: number = 123;
 let credits: number = 100;
-let isBonus: boolean = false;
+let isBonus: boolean = false != false;
 
 // if credits are at least 50,
 // and is_bonus is false decrement c by 2
@@ -219,19 +219,16 @@ let isBonus: boolean = false;
 // and is_bonus is false decrement c by 1
 // if is_bonus is true c should remain the same
 
-if (credits >= 50 && isBonus) {
-    c - 2;
-    console.log(c);
-} else if (credits < 50 && isBonus) {
-    c--;
-    console.log(c);
-} else if (isBonus !== false) {
+if (credits >= 50 && isBonus == false) {
+    console.log(c - 2);
+} else if (credits < 50 && isBonus == false) {
+    console.log(c--);
+} else if (isBonus == true) {
     console.log(c);
 }
 
 
 
-/*
 
 let d: number =  8;
 let time: number = 120;
@@ -243,6 +240,14 @@ let out3: string = '';
 // if time is more than 200
 // set out3 to "Time out"
 // otherwise set out3 to "Run Forest Run!"
+
+if (d % 4 === 0 && time <= 200) {
+    out3 = '"check"';
+} else if (time > 200) {
+    out3 = '"Time out"';
+} else {
+    out3 = '"Run Forest Run!"';
+}
 
 console.log(out3);
 
