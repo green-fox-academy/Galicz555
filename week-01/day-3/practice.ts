@@ -317,7 +317,7 @@ for(let i: number = 1; i <= 100; i++) {
     console.log(i);
 }
 
-*/
+
 
 
 let lineCount: number = 4;
@@ -334,4 +334,30 @@ let starString: string = '*'
 for (let i = 1; i <= lineCount; i++){
     console.log(starString);
     starString += '*';
+}
+
+*/
+
+let lineCount: number = 4;
+let star: string = '*';
+let space: string = ' ';
+let spaceString: string = '';
+let starString: string = '*'
+
+// Write a program that draws a
+// pyramid like this:
+//
+//    *
+//   ***
+//  *****
+// *******
+//
+// The pyramid should have as many lines as lineCount is
+for (let i: number = 1; i <= lineCount; i++){
+    spaceString= '';
+    for(let k: number = lineCount - i; k >= 1; k--) {
+        spaceString += space;
+    }
+    console.log( spaceString + starString);
+    starString += '**';
 }
