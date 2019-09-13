@@ -252,3 +252,9 @@ if (d % 4 === 0 && time <= 200) {
 console.log(out3);
 
 */
+// Create a program that writes this line 100 times:
+// "I won't cheat on the exam!"
+
+for (let i: number = 0; i < 100; i++){
+    console.log("I won't cheat on the exam!");
+}
