@@ -265,7 +265,7 @@ for (let i: number = 0; i <= 500; i++){
     console.log(i++);
 }
 
-*/
+
 
 // Create a program that
 // prints the multiplication table with number
@@ -287,4 +287,15 @@ for (let i: number = 0; i <= 500; i++){
 let x: number = 3;
 for (let i: number = 0; i <=10; i++){
     console.log(i * x);
+}
+*/
+
+// Write a program that calculates the sum and the average from 1 to a given number.
+// Example input: 5
+// Example output: Sum: 15, Average: 3
+
+let x: number = 5;
+
+for(let i: number = 1; i < 100 ; i++) {
+    console.log("Sum: " + [i + x] + ", Average: " + [(i + x) / x ]);
 }
