@@ -50,14 +50,23 @@
 // let myResult = factorio(3);
 // console.log(myResult);
 
-function factorio(a: number) {
-    if (a === 0 || a === 1)
-    return 1;
+// function factorio(a: number) {
+//     if (a === 0 || a === 1)
+//     return 1;
 
-    for (let i = a - 1; i >= 1; i--) {
-      a = a * i;
-    }
-    return a;
+//     for (let i = a - 1; i >= 1; i--) {
+//       a = a * i;
+//     }
+//     return a;
+// }
+// let myResult = factorio(5);
+// console.log(myResult)
+
+//-  Create a function called `printParams`
+//   which logs to the console the input parameters
+//  (can have multiple number of arguments)
+function printParams(...params) {
+    console.log(arguments);
+    console.log(params);
 }
-let myResult = factorio(5);
-console.log(myResult)
+printParams(6,5,898989);
