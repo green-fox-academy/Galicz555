@@ -108,34 +108,48 @@
 //  Make a second boolean parameter, if it's `true` sort that list descending
 
 
-function bubble (array){
-        let sorted = array.sort(function(a, b){return a-b})
-        return sorted;
-};
+// function bubble (array){
+//         let sorted = array.sort(function(a, b){return a-b})
+//         return sorted;
+// };
 
 
-function advancedBubble (array, decider){
+// function advancedBubble (array, decider){
 
-    if(decider === true){
-        let sorted = array.sort(function(a, b){return a-b})
-        return sorted;
-    } else {
-        let sorted2 = array.sort(function(a, b){return b-a})
-        return sorted2;
-    }
+//     if(decider === true){
+//         let sorted = array.sort(function(a, b){return a-b})
+//         return sorted;
+//     } else {
+//         let sorted2 = array.sort(function(a, b){return b-a})
+//         return sorted2;
+//     }
+// }
+
+
+// //console.log(advancedBubble([23, 15, 89, 65]));
+
+
+// //  Example:
+// console.log(bubble([34, 12, 24, 9, 5]));
+// //  should print [5, 9, 12, 24, 34]
+// console.log(advancedBubble([34, 12, 24, 9, 5], false));
+// //  should print [34, 24, 12, 9, 5]
+
+
+
+'use strict';
+//  Create a function that takes a number and an array of numbers as a parameter
+//  Returns the indices of the numbers in the array of which the first number is a part of
+//  Or returns an empty list if the number is not part of any of the numbers in the array
+
+function subint (number, array) {
+    if()
 }
 
 
-//console.log(advancedBubble([23, 15, 89, 65]));
-
-
-//  Example:
-console.log(bubble([34, 12, 24, 9, 5]));
-//  should print [5, 9, 12, 24, 34]
-console.log(advancedBubble([34, 12, 24, 9, 5], false));
-//  should print [34, 24, 12, 9, 5]
-
-
-
-
+// Example
+console.log(subint(1, [1, 11, 34, 52, 61]));
+// should print: `[0, 1, 4]`
+console.log(subint(9, [1, 11, 34, 52, 61]));
+// should print: '[]'
 
