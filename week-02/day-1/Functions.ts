@@ -43,7 +43,7 @@
 // let i;
 // function factorio(a: number) {
 //     for(i = 0; i < a; i++){
-//         let n = a * i;
+//          let n = a * i;
 //         return n;
 //     }
 // }
@@ -55,18 +55,87 @@
 //     return 1;
 
 //     for (let i = a - 1; i >= 1; i--) {
-//       a = a * i;
+//        a = a * i;
 //     }
 //     return a;
 // }
-// let myResult = factorio(5);
+// let myResult = factorio(16);
 // console.log(myResult)
 
 //-  Create a function called `printParams`
 //   which logs to the console the input parameters
 //  (can have multiple number of arguments)
-function printParams(...params) {
-    console.log(arguments);
-    console.log(params);
+// function printParams(...params) {
+//     console.log(arguments);
+//     console.log(params);
+// }
+// printParams(6,5,898989);
+
+
+//  Create a function that takes a list of numbers as a parameter
+//  Returns a list of numbers where every number in the list occurs only once
+
+// let numbers: number [] = [];
+
+// let array = [5, 8, 96, 36, 96, 7, 5];
+
+// function unique(array) {
+//     let sorted: number = array.sort();
+//     for(let i: number = 0; i < array.length; i++) {
+//         if(sorted[i] !== sorted[i+1]) {
+//             numbers.push(sorted[i])
+//         };
+//     };
+//     return numbers;
+// }
+// console.log(unique([5, 8, 96, 36, 96, 7, 5]));
+
+// let numbers: number [] = []
+
+// function unique(array){
+//     let sorted = array.sort()
+//     for(let i:number = 0; i < array.length; i++){
+//         if(sorted[i] !== sorted[i+1]){
+//             numbers.push(sorted[i]);
+//         };
+//     };
+//     return numbers;
+// };
+// console.log(unique([345, 265, 2, 3, 66, 2, 345]));
+
+//  Create a function that takes a list of numbers as parameter
+//  Returns a list where the elements are sorted in ascending numerical order
+//  Make a second boolean parameter, if it's `true` sort that list descending
+
+
+function bubble (array){
+        let sorted = array.sort(function(a, b){return a-b})
+        return sorted;
+};
+
+
+function advancedBubble (array, decider){
+
+    if(decider === true){
+        let sorted = array.sort(function(a, b){return a-b})
+        return sorted;
+    } else {
+        let sorted2 = array.sort(function(a, b){return b-a})
+        return sorted2;
+    }
 }
-printParams(6,5,898989);
+
+
+//console.log(advancedBubble([23, 15, 89, 65]));
+
+
+//  Example:
+console.log(bubble([34, 12, 24, 9, 5]));
+//  should print [5, 9, 12, 24, 34]
+console.log(advancedBubble([34, 12, 24, 9, 5], false));
+//  should print [34, 24, 12, 9, 5]
+
+
+
+
+
