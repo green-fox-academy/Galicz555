@@ -31,9 +31,33 @@
 // console.log(appendAFunc(typo));
 
 // Write a function called `sum` that returns the sum of numbers from zero to the given parameter
-function sum (a, b){
-    return (a + b);
-}
-let myResult = sum (7, 8);
-console.log(myResult);
+// function sum (a: number, b: number): number {
+//     return (a + b);
+// }
+// let myResult = sum (7, 8);
+// console.log(myResult);
 
+// -  Create a function called `factorio`
+//    that returns it's input's factorial
+
+// let i;
+// function factorio(a: number) {
+//     for(i = 0; i < a; i++){
+//         let n = a * i;
+//         return n;
+//     }
+// }
+// let myResult = factorio(3);
+// console.log(myResult);
+
+function factorio(a: number) {
+    if (a === 0 || a === 1)
+    return 1;
+
+    for (let i = a - 1; i >= 1; i--) {
+      a = a * i;
+    }
+    return a;
+}
+let myResult = factorio(5);
+console.log(myResult)
