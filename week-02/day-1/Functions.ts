@@ -24,8 +24,16 @@
 //    appends an 'a' character to its end and returns with a string
 // -  Print the result of `appendAFunc(typo)`
 
-let typo: string = "Chinchill";
-function appendAFunc(typo){
-    return typo + "a";
+// let typo: string = "Chinchill";
+// function appendAFunc(typo){
+//     return typo + "a";
+// }
+// console.log(appendAFunc(typo));
+
+// Write a function called `sum` that returns the sum of numbers from zero to the given parameter
+function sum (a, b){
+    return (a + b);
 }
-console.log(appendAFunc(typo));
+let myResult = sum (7, 8);
+console.log(myResult);
+
