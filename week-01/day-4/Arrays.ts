@@ -104,7 +104,7 @@ console.log(r[1] +r[2]);
 
 //colors excercise
 
-// let colors = [
+// let colors : string [][] = [
 // 	["Shades of green: ", "lime, " + "forest green, " + "olive, " + "pale green, " + "spring green"],
 // 	["Shades of red: ", "orange red, " + "red, " + "tomato"],
 // 	["Shades of pink: ", "orchid, " + "violet, " + "pink, " + "hot pink"],
@@ -167,3 +167,10 @@ console.log(r[1] +r[2]);
 
 // let numList = [3, 4, 5, 6, 7];
 // for(let i: number = 0; i < lineCount; i++)
+
+let myArray = [3,4,5,6,7];
+let newArray = [];
+for(let i = 0 ;i < myArray.length; i++){
+   newArray[i] = myArray[myArray.length - i -1];
+}
+console.log(newArray);
