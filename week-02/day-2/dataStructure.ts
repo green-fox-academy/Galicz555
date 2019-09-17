@@ -204,3 +204,20 @@
 // console.log(empty[100]);
 // Object.keys(empty).forEach(function (key) {delete empty[key]});
 // console.log(empty);
+
+
+//list introduction 2
+let ListA = ["Apple", "Avocado", "Blueberries", "Durian", "Lychee"];
+let ListB = [...ListA];
+console.log(ListB);
+console.log(ListA.indexOf("Durian"));
+ListB.splice(3,1);
+console.log(ListB);
+ListA.splice(3,0,"Kiwi");
+console.log(ListA);
+console.log("The length of ListA: " + ListA.length + ", compared to length of ListB: " +ListB.length);
+console.log(ListA.indexOf("Avocado"));
+console.log(ListB.indexOf("Durian"));
+ListB.push("Passion fruit", "Pomelo");
+console.log(ListB);
+console.log(ListA[2]);
