@@ -10,3 +10,11 @@ const ctx = canvas.getContext('2d');
 // and draws a 50x50 square from that point.
 // Draw 3 squares with that function.
 // Avoid code duplication.
+
+function drawSquare (x, y){
+    ctx.fillRect(x, y, 50, 50);
+}
+
+drawSquare(15,15);
+drawSquare(100,100);
+drawSquare(200,200);

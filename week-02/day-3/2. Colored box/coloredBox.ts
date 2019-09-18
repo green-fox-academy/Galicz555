@@ -7,3 +7,26 @@ const ctx = canvas.getContext('2d');
 
 // draw a box that has different colored lines on each edge.
 
+ctx.beginPath();
+ctx.strokeStyle = "red"
+ctx.moveTo(50, 50);
+ctx.lineTo(50, 100);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.strokeStyle = "green"
+ctx.moveTo(50, 100);
+ctx.lineTo(300, 100);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.strokeStyle = "blue"
+ctx.moveTo(300, 100);
+ctx.lineTo(300, 50);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.strokeStyle = "yellow"
+ctx.moveTo(300, 50);
+ctx.lineTo(50, 50);
+ctx.stroke();
