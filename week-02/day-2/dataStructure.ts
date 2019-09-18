@@ -207,17 +207,30 @@
 
 
 //list introduction 2
-let ListA = ["Apple", "Avocado", "Blueberries", "Durian", "Lychee"];
-let ListB = [...ListA];
-console.log(ListB);
-console.log(ListA.indexOf("Durian"));
-ListB.splice(3,1);
-console.log(ListB);
-ListA.splice(3,0,"Kiwi");
-console.log(ListA);
-console.log("The length of ListA: " + ListA.length + ", compared to length of ListB: " +ListB.length);
-console.log(ListA.indexOf("Avocado"));
-console.log(ListB.indexOf("Durian"));
-ListB.push("Passion fruit", "Pomelo");
-console.log(ListB);
-console.log(ListA[2]);
+// let ListA = ["Apple", "Avocado", "Blueberries", "Durian", "Lychee"];
+// let ListB = [...ListA];
+// console.log(ListB);
+// console.log(ListA.indexOf("Durian"));
+// ListB.splice(3,1);
+// console.log(ListB);
+// ListA.splice(3,0,"Kiwi");
+// console.log(ListA);
+// console.log("The length of ListA: " + ListA.length + ", compared to length of ListB: " +ListB.length);
+// console.log(ListA.indexOf("Avocado"));
+// console.log(ListB.indexOf("Durian"));
+// ListB.push("Passion fruit", "Pomelo");
+// console.log(ListB);
+// console.log(ListA[2]);
+
+// map introduction 2
+// let stuff = {
+//     "978-1-60309-452-8":"A Letter to Jo",
+//     "978-1-60309-459-7":"Lupus",
+//     "978-1-60309-444-3":"Red Panda and Moon Bear",
+//     "978-1-60309-461-0":"The Lab"
+// }
+// let keyArray: string[] = Object.keys(stuff);
+
+// for (let i = 0; i < keyArray.length; i++){
+//     console.log(`${stuff[keyArray[i]]} (ISBN: ${keyArray[i]})`)
+// }
