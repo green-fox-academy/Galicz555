@@ -11,10 +11,10 @@ let startingWidthPoint = 0;
 let startingHeightPoint = 0;
 
 
-function drawRectLineplay(x, y, z){
+function drawRectLineplay(x: number, y: number, z: number): void{
     ctx.fillRect(x, y, z, z);
 
-    function drawLineplay (x, y){
+    function drawLineplay (x: number, y: number): void{
         ctx.strokeStyle = 'green';
         for(let i = 0; i < newCanvasWidth; i += spacing){
             ctx.beginPath();
@@ -25,7 +25,7 @@ function drawRectLineplay(x, y, z){
     }
     drawLineplay (x, y);
     
-    function drawLineplay2 (x, y){
+    function drawLineplay2 (x: number, y: number): void{
         ctx.strokeStyle = 'green';
         for(let i = 0; i < newCanvasWidth; i += spacing){
             ctx.beginPath();
