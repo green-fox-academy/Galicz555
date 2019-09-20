@@ -348,11 +348,22 @@
 // }
 
 let productDatabase = {
-    Product name (key)	Price (value)
-    Eggs	200
-    Milk	200
-    Fish	400
-    Apples	150
-    Bread	50
-    Chicken	550
+    "Eggs":	200,
+    "Milk":	200,
+    "Fish":	400,
+    "Apples":	150,
+    "Bread":	50,
+    "Chicken":	550,
 }
+
+function application (productDatabase) {
+    console.log("The fish costs " + productDatabase["Fish"]);
+    let keyArray: number[] = Object.values(productDatabase);
+    let total3 = keyArray.reduce(function(a, b) {
+        return Math.max(a, b);
+    })
+    console.log("Our expensive product is " + total3);
+}
+
+
+application(productDatabase)
