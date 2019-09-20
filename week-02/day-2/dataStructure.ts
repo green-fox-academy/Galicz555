@@ -234,3 +234,125 @@
 // for (let i = 0; i < keyArray.length; i++){
 //     console.log(`${stuff[keyArray[i]]} (ISBN: ${keyArray[i]})`)
 // }
+
+// delete stuff["978-1-60309-444-3"];
+// delete stuff["978-1-60309-461-0"]
+// stuff["978-1-60309-450-4"] = "They Called Us Enemy";
+// stuff["978-1-60309-453-5"] = "Why Did We Trust Him?";
+
+// // 978-1-60309-450-4	They Called Us Enemy
+// // 978-1-60309-453-5	Why Did We Trust Him?
+
+// console.log(stuff);
+// console.log(Object.hasOwnProperty(478-0-61159-424-8));
+
+// console.log(stuff["978-1-60309-453-5"]);
+
+// We are going to represent our expenses in a list containing integers.
+
+// Create a list with the following items.
+// 500, 1000, 1250, 175, 800 and 120
+// Create an application which solves the following problems.
+// How much did we spend?
+// Which was our greatest expense?
+// Which was our cheapest spending?
+// What was the average amount of our spendings?
+
+// let expenses : number [] = [500, 1000, 1250, 175, 800, 120];
+
+// function application(x){ 
+//     let total = x.reduce(function(a, b) {
+//         return a + b;
+//     });
+//     console.log("We spent " + total);
+
+//     let total2 = x.reduce(function(a, b) {
+//         return Math.max(a, b);
+//     })
+//     console.log("Our greates expense is " + total2);
+    
+//     let total3 = x.reduce(function(a, b) {
+//         return Math.min(a, b);
+//     })
+//     console.log("Our cheapest expense is " + total3);
+
+//     let total4 = x.reduce(function(a, b) {
+//         return (a + b) /2
+//     })
+//     console.log("Our average spendings " + total4);
+// }
+
+// application(expenses);
+
+// let telephoneBook = {
+//     "Name (key)":   "Phone number (value)",
+//     "William A. Lathan":    "405-709-1865",
+//     "John K. Miller":"402-247-8568",
+//     "Hortensia E. Foster":	"606-481-6467",
+//     "Amanda D. Newland":    "319-243-5613",
+//     "Brooke P. Askew":	"307-687-2982",
+// }
+
+
+
+// console.log(telephoneBook["John K. Miller"]);
+
+// let findName: string = "";
+// let names: string[] = Object.keys(telephoneBook);
+// for (let i = 0; i < names.length; i++){
+//     if(telephoneBook[names[i]] == "307-687-2982"){
+//         findName = names[i];
+//     }
+// };
+// console.log('The number 307-687-2982 belongs to ' + findName);
+
+// console.log(telephoneBook.hasOwnProperty("Chris E. Myers"));
+
+
+// We are going to represent a shopping list in a list containing strings.
+
+// Create a list with the following items.
+// Eggs, milk, fish, apples, bread and chicken
+// Create an application which solves the following problems.
+// Do we have milk on the list?
+// Do we have bananas on the list?
+
+// let shoppingList : string [] = ["Eggs", "milk", "fish", "apples", "bread", "chicken"];
+
+// let x = "milk"
+// function doWeHave (e){
+//     return 
+// console.log(shoppingList.some(doWeHave));(e == x);
+// }
+
+// let milk: number = 0;
+// let bananas: number = 0;
+
+// for (let i = 0; i < shoppingList.length; i++){
+//     if(shoppingList[i] == "milk"){
+//         milk++;
+//     };
+//     if(shoppingList[i] == "bananas"){
+//         bananas++;
+//     }
+// }
+// if(milk > 0){
+//     console.log("Our shopping list contains milk!");
+// } else {
+//     console.log("We're not buying milk today.")
+// }
+// if (bananas > 0) {
+//     console.log("Our shopping list contains bananas!")
+// } else {
+//     console.log("We're not buying bananas today.")
+// }
+
+let productDatabase = {
+    Product name (key)	Price (value)
+    Eggs	200
+    Milk	200
+    Fish	400
+    Apples	150
+    Bread	50
+    Chicken	550
+}
