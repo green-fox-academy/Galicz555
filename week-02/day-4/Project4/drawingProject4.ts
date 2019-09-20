@@ -16,20 +16,21 @@ function Pyramid(x, y){
     ctx.stroke();
 }
 
-// Pyramid(230,265);
+// Pyramid(250,30);
 let width = 20;
-let height = 17;
+let height = Math.sqrt((width**2)-(width/2)**2);
 let lineCount = 25;
-let startingWidth = 250;
+let startingWidth = 240;
 let startingHeight = 30;
 
 
 
 
 for(let i = 0; i < lineCount; i++){
-    for(let j = 0; j < i ; j++){
-    Pyramid(startingWidth+j*width , startingHeight);
+    for(let j = 0; j <= i ; j++){
+        Pyramid(startingWidth+j*width, startingHeight);
     }
     startingWidth -= width/2;
     startingHeight += height;
 }
+
