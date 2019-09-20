@@ -3,18 +3,19 @@ const ctx = canvas.getContext('2d');
 
 
 let checksize = 4;
+let dense = 5
 
-let x = 0;
+
 let newCanvasWidth = canvas.width/checksize;
 
-function drawRectLineplay(x,y){
-    // ctx.fillRect(x, y, z, z);
-    // ctx.strokeStyle = "white";
-    // ctx.strokeRect(x, y, z, z);
+function drawRectLineplay(x,y,z){
+    ctx.fillRect(x, y, z, z);
+    ctx.strokeStyle = "white";
+    ctx.strokeRect(x, y, z, z);
 
     function drawNiceThing (x,y){
         ctx.strokeStyle = 'green';
-        for(let i = 0; i < newCanvasWidth; i+=5){
+        for(let i = 0; i < newCanvasWidth; i+=dense){
             // for(let k = 0; i < canvas.height; k+=20){
             ctx.beginPath();
             ctx.moveTo(x, y+i);
@@ -27,7 +28,7 @@ function drawRectLineplay(x,y){
     
     function drawNiceThing2 (x,y){
         ctx.strokeStyle = 'purple';
-        for(let i = 0; i < newCanvasWidth; i+=5){
+        for(let i = 0; i < newCanvasWidth; i+=dense){
             // for(let k = 0; i < canvas.height; k+=20){
             ctx.beginPath();
             ctx.moveTo(x+i, y);
@@ -39,7 +40,7 @@ function drawRectLineplay(x,y){
     drawNiceThing2 (x, y);
 }
 
-drawRectLineplay(0,0);
+drawRectLineplay(0,0,newCanvasWidth);
 
 
 
