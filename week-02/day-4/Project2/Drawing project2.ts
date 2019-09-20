@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 
 
 let checksize = 1;
-let spacing = 10;
+let spacing = 5;
 
 
 let newCanvasWidth = canvas.width/checksize;

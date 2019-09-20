@@ -6,7 +6,7 @@ const ctx = canvas.getContext('2d');
 // DO NOT TOUCH THE CODE ABOVE THIS LINE
 
 
-function drawNiceThing (x, y, a, b){
+function drawLineplay (x, y, a, b){
     ctx.strokeStyle = 'green';
     for(let i = 0; i < canvas.width / 2; i += 20){
         ctx.beginPath();
@@ -15,9 +15,9 @@ function drawNiceThing (x, y, a, b){
         ctx.stroke();
     }
 }
-drawNiceThing (500, 250, 250, 250);
+drawLineplay (500, 250, 250, 250);
 
-function drawNiceThing2 (x, y, a, b){
+function drawLineplay2 (x, y, a, b){
     ctx.strokeStyle = 'green';
     for(let i = 0; i < canvas.width / 2; i += 20){
         ctx.beginPath();
@@ -26,9 +26,9 @@ function drawNiceThing2 (x, y, a, b){
         ctx.stroke();
     }
 }
-drawNiceThing2 (0, 250, 250, 250);
+drawLineplay2 (0, 250, 250, 250);
 
-function drawNiceThing3 (x, y, a, b){
+function drawLineplay3 (x, y, a, b){
     ctx.strokeStyle = 'green';
     for(let i = 0; i < canvas.width / 2; i += 20){
         ctx.beginPath();
@@ -37,9 +37,9 @@ function drawNiceThing3 (x, y, a, b){
         ctx.stroke();
     }
 }
-drawNiceThing3 (0, 250, 250, 250);
+drawLineplay3 (0, 250, 250, 250);
 
-function drawNiceThing4 (x, y, a, b){
+function drawLineplay4 (x, y, a, b){
     ctx.strokeStyle = 'green';
     for(let i = 0; i < canvas.width / 2; i += 20){
         ctx.beginPath();
@@ -48,5 +48,5 @@ function drawNiceThing4 (x, y, a, b){
         ctx.stroke();
     }
 }
-drawNiceThing4 (500, 250, 250, 250);
+drawLineplay4 (500, 250, 250, 250);
 
