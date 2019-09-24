@@ -1,3 +1,4 @@
+
 // Create a function that takes 3 parameters: a path, a word and a number
 // and is able to write into a file.
 // The path parameter should be a string that describes the location of the file you wish to modify
@@ -9,6 +10,9 @@
 
 let fs = require('fs');
 
-function code (x: string, y: string, z: number ){
+let lineContent: string = "galiczMihály\r\n";
 
+function code(x: string, y: string, z: number) {
+    fs.writeFileSync (x, y.repeat(z));
 }
+code('C:\Users\Galicz\Desktop\greenfox\Galicz555\week-03\day-2\Readme.txt', lineContent, 5);
