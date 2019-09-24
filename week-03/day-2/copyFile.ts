@@ -4,19 +4,12 @@
 
 let fs = require('fs');
 
-function copy (x: string, y: string) {
-    // try{
-        fs.readFile(x, 'utf8', function(err, data) {
-            fs.writeFile(y, data);
-        });
-    // }
-    // catch (err) {
-    //     if (!err){
-    //             console.log(true);
-    //     } else {
-    //             console.log(false);
-    //     }
-    // }
+function copy(x: string, y: string) {
+    fs.readFile(x, 'utf8', function (err, data) {
+        fs.writeFile(y, data, function (err, result) {
+            if (!err) console.log(true);
+        })
+    });
 }
 
 copy('readMe.txt', 'writeMe.txt');
