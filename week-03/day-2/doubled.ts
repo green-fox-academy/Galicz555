@@ -2,6 +2,27 @@
 
 let fs = require('fs');
 
-let read = fs.readFile("duplicated-chars.txt", "utf-8");
+let content = "";
 
-console.log("duplicated-chars.txt")
+
+content = fs.readFileSync("duplicated-chars.txt", "utf8");
+
+let characters = content.split('');
+
+let newTxt: string = "";
+
+// characters.forEach(function (e){
+//     if (e !== e+1) {
+//     newTxt += e}
+// });
+for(var i = 0;i<characters.length;i++) { 
+    if (characters[i] !== characters[i+1]){
+        newTxt += characters[i]
+    } 
+}
+
+
+console.log(newTxt);
+
+// let result = newTxt.join();
+// console.log(result)
