@@ -10,7 +10,7 @@ import { isMainThread } from 'worker_threads';
 // -  Download those, use those
 // -  In the `main` method create a fleet
 // -  Achieve this output:
-//  Crete a fleet of things to have this output:
+//  Create a fleet of things to have this output:
 
 // 1. [ ] Get milk
 // 2. [ ] Remove the obstacles
@@ -27,7 +27,7 @@ class FleetOfThings {
     }
 
     main(){
-        let fleet = new Fleet();
+        let fleet = new FleetOfThings(fleet);
         let thing1 = new Thing(fire)
 
         fleet.add(thing1)
