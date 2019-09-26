@@ -1,6 +1,6 @@
 import { dirname } from "path";
 
-class animal {
+export class animal {
     private _hunger;
     private _thirst;
 
@@ -31,11 +31,3 @@ class animal {
     }
 
 }
-
-let tiger = new animal();
-
-tiger.drink();
-tiger.eat();
-tiger.play();
-console.log(tiger.hunger);
-console.log(tiger.thirst);
