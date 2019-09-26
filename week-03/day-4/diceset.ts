@@ -85,13 +85,15 @@ diceSet.roll();
 //         diceSet.reroll()
 //     }
 // }
-let counter = 0;
 
-for (let i = 0; i < diceSet.dice.length; i++) {
-    while (diceSet.dice[i] !== 6) {
-        diceSet.reroll(i);
-        counter++;
-    }
-}
-console.log(diceSet.getCurrent());
-console.log(counter);
+//hetero megoldás: egyik legjobb
+// let counter = 0;
+
+// for (let i = 0; i < diceSet.dice.length; i++) {
+//     while (diceSet.dice[i] !== 6) {
+//         diceSet.reroll(i);
+//         counter++;
+//     }
+// }
+// console.log(diceSet.getCurrent());
+// console.log(counter);
