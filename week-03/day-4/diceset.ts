@@ -30,17 +30,17 @@ class DiceSet {
         }
     }
 }
-
 // You have a `DiceSet` class which has a list for 6 dice
 // You can roll all of them with roll()
 // Check the current rolled numbers with getCurrent()
 // You can reroll with reroll()
 // Your task is to roll the dice until all of the dice are 6
 
-let diceSet = new DiceSet();
-diceSet.roll();
 
-// buzis megoldás: talán összejövő féle
+
+
+
+// buzis megoldás: talán összejövő féle // The gay method
 
 // for (let l = 0; l < 100000; l++) {
 //     diceSet.roll();
@@ -51,7 +51,22 @@ diceSet.roll();
 
 
 
-// buzis megoldás: tuti összejön
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// buzis megoldás: tuti összejön // The gay method that surely works
 
 // while (diceSet.dice[0] !== 6 || diceSet.dice[1] !== 6 || diceSet.dice[2] !== 6 || diceSet.dice[3] !== 6 || diceSet.dice[4] !== 6 || diceSet.dice[5] !== 6) {
 //     diceSet.reroll();
@@ -61,7 +76,41 @@ diceSet.roll();
 
 
 
-//hetero megoldás: de nem a legjobb (számolóval)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// hetero megoldás: de nem a legjobb (számolóval) // Straight method but not the best
 
 // function isAllDiceSix(diceSet: DiceSet): boolean {
 //     for (let o = 0; o < diceSet.dice.length; o++) {
@@ -72,7 +121,6 @@ diceSet.roll();
 //     return true;
 // }
 
-// let counter:number = 0;
 // while (!isAllDiceSix(diceSet)) {
 //     diceSet.reroll();
 //     counter++;
@@ -80,20 +128,34 @@ diceSet.roll();
 // console.log(diceSet.getCurrent());
 // console.log(counter);
 
-// function isDiceSix(dice) {
-//     while(dice !== 6){
-//         diceSet.reroll()
-//     }
-// }
 
-//hetero megoldás: egyik legjobb
+
+
+
+
+
+
+
+
+
+
+
+
+
+let diceSet = new DiceSet();
+diceSet.roll();
+let counter:number = 0;
+
+
+
+// //hetero megoldás: egyik legjobb // Straight method: i think the best
 // let counter = 0;
 
-// for (let i = 0; i < diceSet.dice.length; i++) {
-//     while (diceSet.dice[i] !== 6) {
-//         diceSet.reroll(i);
-//         counter++;
-//     }
-// }
-// console.log(diceSet.getCurrent());
-// console.log(counter);
+for (let i = 0; i < diceSet.dice.length; i++) {
+    while (diceSet.dice[i] !== 6) {
+        diceSet.reroll(i);
+        counter++;
+    }
+}
+console.log(diceSet.getCurrent());
+console.log(counter);
