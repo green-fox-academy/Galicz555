@@ -4,6 +4,10 @@ interface Reservationy {
 }
 
 class Reservations implements Reservationy {
+    protected _CodeBooking: string [];
+    protected _DowBooking: string [];
+
+    
 
     
     getDowBooking(): string{
@@ -11,3 +15,4 @@ class Reservations implements Reservationy {
     getCodeBooking(): string{
     }
 }
+
