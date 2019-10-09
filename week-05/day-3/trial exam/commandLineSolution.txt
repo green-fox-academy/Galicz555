@@ -1,0 +1,1 @@
+Solution: rm ./program/data.txt ./exam/data.txt mv ./program/assets/picture* ./exam/images git add . git commit -m "delete txt files and move image files"
