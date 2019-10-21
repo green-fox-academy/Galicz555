@@ -1,0 +1,92 @@
+body {
+    max-width: 1843px;
+    max-height: 800px;
+    margin: 10px 30px;
+}
+
+nav {
+    background: purple;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.box {
+    width: 100px;
+    height: 20px;
+    background: #2aeaff;
+    list-style-type: none;
+    margin: 20px;
+}
+
+.bodyContainer {
+    display: flex;
+    min-height: 800px;
+    min-width: 100px;
+}
+
+.mainContent {
+    background: #ffd62a;
+    flex-grow: 2;
+}
+
+.boxContainer {
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    height: 150px;
+    justify-content: space-between;
+}
+
+.red {
+    min-width: 10px;
+    flex-grow: 1;
+    height: 100px;
+    margin: 20px;
+    background: red;
+    list-style-type: none;
+    padding: 0px;
+    align-self: center;
+}
+
+.sideBar {
+    background: #51d400;
+    width: 500px;
+    min-width: 500px;
+}
+
+.Carrier {
+    align-self: center;
+    justify-content: center;
+}
+
+p::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+p {
+    font-size: 18px;
+    margin: 15px;
+}
+
+.newSpace {
+    display: flex;
+    flex-flow: column;
+}
+
+.purple {
+    min-width: 10px;
+    flex-grow: 1;
+    height: 100px;
+    margin: 20px;
+    background: purple;
+    list-style-type: none;
+    padding: 0px;
+}

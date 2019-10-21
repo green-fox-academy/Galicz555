@@ -1,1 +1,3 @@
 Solution: rm ./program/data.txt ./exam/data.txt mv ./program/assets/picture* ./exam/images git add . git commit -m "delete txt files and move image files"
+
+Solution: mkdir ./math/geometry/exercises mv ./math/geometry/week01_hw.txt ./math/geometry/exercises git reset ./math/geometry/pithagorean_theorem.md git mv./math/geometry/pithagorean_theorem.md ./math/geometry/pythagorean_theorem.md cd math git add . git commit

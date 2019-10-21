@@ -1,0 +1,43 @@
+.body {
+    align-self: center;
+}
+
+nav {
+    background: purple;
+}
+
+nav::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.headerContainer {
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.box {
+    width: 100px;
+    height: 20px;
+    background: #2aeaff;
+    list-style-type: none;
+    margin: 20px;
+}
+
+.bodyContainer {
+    display: flex;
+    min-height: 800px;
+    min-width: 100px;
+}
+
+.mainContent {
+    background: #ffd62a;
+    flex-grow: 2;
+}
+
+.sideBar {
+    background: #51d400;
+    flex-grow: 1;
+}

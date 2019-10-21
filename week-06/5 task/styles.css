@@ -1,0 +1,71 @@
+body {
+    align-self: center;
+    margin: 0px;
+}
+
+nav {
+    background: purple;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+}
+
+nav::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+header {
+    display: flex;
+    background: #00ffff;
+    min-width: 100px;
+    flex-grow: 1;
+    height: 100px;
+}
+
+.bodyContainer {
+    display: flex;
+    min-height: 800px;
+    min-width: 100px;
+    justify-content: space-between;
+}
+
+.mainContent {
+    background: #fe0000;
+    flex-grow: 3;
+    order: 1;
+}
+
+.leftSideBar {
+    background: #fea500;
+    flex-grow: 1;
+    order: 0;
+    margin: 0px 30px 0px 0px;
+}
+
+.rightSideBar {
+    background: #81007f;
+    flex-grow: 1;
+    order: 2;
+    margin: 0px 0px 0px 30px;
+}
+
+.blackSquare {
+    display: flex;
+    background: black;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    top: 750px;
+    left: 1350px;
+    z-index: 1;
+}
+
+footer {
+    display: flex;
+    background: #0000fe;
+    min-width: 100px;
+    flex-grow: 1;
+    height: 100px;
+}

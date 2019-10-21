@@ -1,0 +1,105 @@
+body {
+    align-self: center;
+    margin: 0px;
+}
+
+nav {
+    background: purple;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+}
+
+nav::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.headerContainer {
+    display: flex;
+    padding: 0;
+}
+
+.box {
+    width: 100px;
+    height: 20px;
+    background: #2aeaff;
+    list-style-type: none;
+    margin: 20px;
+}
+
+.bodyContainer {
+    display: flex;
+    min-height: 645.5px;
+    min-width: 300px;
+    margin: 100px 300px 10px;
+}
+
+.bodyContainer2 {
+    display: flex;
+    min-height: 645.5px;
+    min-width: 300px;
+    margin: 10px 300px 10px;
+}
+
+.mainContent {
+    background: #51d400;
+    flex-grow: 1;
+    order: 1;
+}
+
+.mainContent2 {
+    background: #51d400;
+    max-width: 645.5px;
+    flex-grow: 1;
+    order: 0;
+}
+
+.sideBar {
+    background: #51d400;
+    flex-grow: 1;
+    order: 0;
+    margin: 0px 10px 0px 0px;
+}
+
+.sideBar2 {
+    background: #51d400;
+    flex-grow: 1;
+    order: 1;
+    margin: 0px 10px 0px 10px;
+}
+
+.sideBar3 {
+    background: #51d400;
+    flex-grow: 1;
+    order: 1;
+    margin: 0px;
+}
+
+.boxContainer {
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    height: 800px;
+    justify-content: center;
+}
+
+.space {
+    width: 200px;
+    height: 400px;
+    margin: 20px;
+    background: red;
+    list-style-type: none;
+    padding: 0px;
+    align-self: center;
+}
+
+footer {
+    display: flex;
+    background: #cccccc;
+    min-width: 100px;
+    flex-grow: 1;
+    height: 50px;
+    margin: 0px 300px 80px;
+}
