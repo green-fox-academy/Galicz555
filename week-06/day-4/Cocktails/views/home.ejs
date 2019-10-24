@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <%for(let i = 0; i < cocktails.length; i++){%>
+        <li><%= cocktails[i].name %></li>
+        <li><%= cocktails[i].price %></li>
+        <li><%= cocktails[i].contains %></li>
+        <% }; %>
+    </ul>
+    <ul>
+        <%for(let i = 0; i < alcohols.length; i++){%>
+        <%if(alcohols[i] == qs.alcohol){%>
+        <li><%= alcohols[i] %></li>
+        <% }}; %>
+    </ul>
+
+
+</body>
+
+</html>
