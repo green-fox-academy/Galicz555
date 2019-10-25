@@ -17,10 +17,11 @@
         <% }; %>
     </ul>
     <ul>
-        <%for(let i = 0; i < alcohols.length; i++){%>
-        <%if(alcohols[i] == qs.alcohol){%>
-        <li><%= alcohols[i] %></li>
-        <% }}; %>
+        <%for(let i = 0; i < cocktails.length; i++){%>
+        <%for(let j = 0; j < cocktails[i].contains.length; j++){%>
+        <%if(cocktails[i].contains[j] == qs.alcohol){%>
+        <li><%= cocktails[i].name %></li>
+        <% }}}; %>
     </ul>
 
 
