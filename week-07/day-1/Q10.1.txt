@@ -1,0 +1,14 @@
+Find the names of all reviewers who rated Gone with the Wind.
+
+SELECT DISTINCT name FROM reviewer
+LEFT JOIN movie, rating
+ON reviewer.rId = rating.rId AND movie.mID = Rating.mID
+WHERE movie.mID = 101
+
+Your Query Result:
+Mike Anderson
+Sarah Martinez
+
+Expected Query Result:
+Mike Anderson
+Sarah Martinez

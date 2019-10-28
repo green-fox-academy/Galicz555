@@ -1,0 +1,13 @@
+Find the titles of all movies directed by Steven Spielberg.
+
+SELECT Title FROM movie
+WHERE director = "Steven Spielberg";
+
+
+Your Query Result:
+E.T.
+Raiders of the Lost Ark
+
+Expected Query Result:
+E.T.
+Raiders of the Lost Ark
