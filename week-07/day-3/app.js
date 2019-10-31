@@ -24,8 +24,6 @@ app.get('/doubling', (req, res) => {
             received: parseInt(req.query.input),
             result: req.query.input * 2
         }
-        res.status(200);
-        res.setHeader("Content-type", "application/json");
         res.send(doubling);
     }
 });
@@ -50,8 +48,6 @@ app.get('/greeter', (req, res) => {
         let greeter = {
             "welcome_message": "Oh, hi there " + req.query.name + ", my dear " + req.query.title + "!"
         }
-        res.status(200);
-        res.setHeader("Content-type", "application/json");
         res.send(greeter);
     }
 });
@@ -60,8 +56,6 @@ app.get('/appenda/:appendable', (req, res) => {
     let add = {
         "appended": req.params.appendable + "a"
     }
-    res.status(200);
-    res.setHeader("Content-type", "application/json");
     res.send(add);
 });
 
