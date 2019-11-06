@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type:"text/css" href="style.css">
+    <title>Button disable</title>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <h1>What is your favourite pet?</h1>
+            <input type="radio" id="Dog" name="pet" />
+            <label for="Dog">Dog</label><br />
+            <input type="radio" id="Cat" name="pet" />
+            <label for="Cat">Cat</label><br />
+            <input type="radio" id="Viktor" name="pet" />
+            <label for="Viktor">Viktor the goldfish</label>
+
+            <h2>Do you want to sign up for cat facts?</h2>
+            <input type="radio" id="Yes" name="sign" />
+            <label for="Yes">Yes</label><br />
+            <input type="radio" id="No" name="sign" />
+            <label for="No">No</label><br />
+
+            <button disabled="true" id="iLoveCatsbtn">I love cats</button>
+            <button disabled="true" id="signUp">Sign up</button>
+
+        </form>
+    </div>
+    <script>
+        const dogbtn = document.getElementById("Dog");
+        const catbtn = document.getElementById("Cat");
+        const viktorbtn = document.getElementById("Viktor");
+        const petGroup = document.getElementsByName("pet");
+        const yesbtn = document.getElementById("Yes");
+        const nobtn = document.getElementById("No");
+        const iLoveCatsbtn = document.getElementById("iLoveCatsbtn");
+        const signUpbtn = document.getElementById("signUp");
+
+        function catbtnEnablerer() {
+            if (iLoveCatsbtn.disabled === true) { iLoveCatsbtn.disabled = false }
+        }
+        function signUpEnablerer() {
+            if (signUpbtn.disabled === true && catbtn.checked || dogbtn.checked) { signUpbtn.disabled = false }
+        }
+        function signingUp() {
+            event.preventDefault()
+            if (viktorbtn.checked || nobtn.checked) {
+                alert("Sigh, we still added you to the cat facts list")
+            } else if (dogbtn.checked || catbtn.checked) {
+                alert("Thank you, you've successfully signed up for cat facts")
+            }
+        }
+
+        catbtn.addEventListener("click", signUpEnablerer);
+        dogbtn.addEventListener("click", signUpEnablerer);
+        yesbtn.addEventListener("click", catbtnEnablerer);
+
+        iLoveCatsbtn.addEventListener("click", signingUp);
+        signUpbtn.addEventListener("click", signingUp);
+    </script>
+</body>
+
+</html>

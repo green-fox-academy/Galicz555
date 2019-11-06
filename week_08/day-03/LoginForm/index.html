@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type:"text/css" href="style.css">
+    <title>Login Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>ACCOUNT LOGIN</h1>
+        <form action="/send" method="POST">
+            <!--for backend POST endpoint-->
+            <div>
+                <label for="name">USERNAME</label>
+                <input autofocus type="text" id="name" name="user_name">
+            </div>
+            <div class="eye">
+                <label for="password">PASSWORD</label>
+                <input type="password" id="password" name="pwd">
+            </div>
+            <a href="https://www.greenfox.com">Forgot password?</a>
+            <div class="button">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        const passwordField = document.getElementById("password");
+        function revealer() {
+            let x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+        passwordField.addEventListener("click", (event) =>{
+            if(event.clientX > 1145){
+                revealer()
+            }
+        } );
+    </script>
+</body>
+
+</html>
