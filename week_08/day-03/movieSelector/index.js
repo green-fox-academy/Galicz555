@@ -5,7 +5,7 @@ const movie = document.getElementById("movie");
 
 
 let genreArray = ["Sci-fi", "Drama", "Comedy"];
-let movieArray = ["Moon", "2001: A Space Odyssey", "Contact", "Darkest Hour", "There Will Be Blood", "American Beauty", "Airplane!", "Deadpool", "Wayne's World"];
+// let movieArray = ["Moon", "2001: A Space Odyssey", "Contact", "Darkest Hour", "There Will Be Blood", "American Beauty", "Airplane!", "Deadpool", "Wayne's World"];
 
 for (let i = 0; i < genreArray.length; i++) {
     let option = document.createElement("option");
@@ -39,4 +39,5 @@ function showMovie() {
     document.getElementsByTagName("p")[0].innerHTML = "The selected movie is: " + result;
 }
 
-movie.addEventListener("click", showMovie)
+movie.addEventListener("click", showMovie);
+
