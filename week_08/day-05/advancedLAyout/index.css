@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    width: 1900px;
+    margin: 0 auto;
+    gap: 10px;
+    grid-template-areas: 
+    "nav nav nav nav" 
+    "main1 main1 main2 main2" 
+    "main3 main3 aside1 aside2" 
+    "footer footer footer footer";
+}
+
+nav {
+    grid-area: nav;
+    background: #b02aff;
+    display: flex;
+    align-items: center;
+}
+
+.navElements {
+    display: flex;
+    margin: 5px;
+    width: 200px;
+    height: 40px;
+    background: #2aeaff;
+    justify-content: center;
+    align-items: center;
+}
+
+.first {
+    margin-left: 60px
+}
+
+.aside1 {
+    grid-area: aside1;
+    background: #51d400;
+    min-height: 450px;
+}
+
+.aside2 {
+    margin-right: 60px;
+    grid-area: aside2;
+    background: #51d400;
+    min-height: 450px;
+}
+
+.main1 {
+    margin-left: 60px;
+    min-height: 450px;
+    grid-area: main1;
+    background: #51d400;
+}
+
+.main2 {
+    margin-right: 60px;
+    min-height: 450px;
+    grid-area: main2;
+    background: #51d400;
+}
+
+.main3 {
+    margin-left: 60px;
+    min-height: 50px;
+    grid-area: main3;
+    background: #51d400;
+}
+
+main {
+    padding: 20px;
+    font-size: 36px;
+}
+
+aside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.red {
+    position: absolute;
+    min-width: 300px;
+    height: 80%;
+    background: red;
+}
+
+footer {
+    margin: 0 60px 60px;
+    grid-area: footer;
+    background: grey;
+    height: 100px;
+}

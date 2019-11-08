@@ -32,17 +32,17 @@ conn.query('SELECT * FROM book_mast;', function (err, rows) {
 });
 
 
-// app.get('/', function (req, res) {
-//     conn.query('SELECT * FROM book_mast;', function (err, rows) {
-//         if (err) {
-//             console.log(err.toString());
-//             res.status(500).send('Database error');
-//             return;
-//         }
-//         res.setHeader('Access-Control-Allow-Origin', '*')
-//         res.send(rows);
-//     });
-// });
+app.get('/', function (req, res) {
+    conn.query('SELECT * FROM book_mast;', function (err, rows) {
+        if (err) {
+            console.log(err.toString());
+            res.status(500).send('Database error');
+            return;
+        }
+        res.setHeader('Access-Control-Allow-Origin', '*')
+        res.send(rows);
+    });
+});
 
 app.get('/book_mast/bookTitle', function (req, res) {
     conn.query('SELECT book_name FROM book_mast;', function (err, rows) {
@@ -56,23 +56,23 @@ app.get('/book_mast/bookTitle', function (req, res) {
     });
 });
 
-// app.get('/book_mast/bookFullData', function (req, res) {
-//     conn.query('SELECT book_name, aut_name, book_price, pub_name, cate_descrip FROM book_mast\
-//     INNER JOIN author ON book_mast.aut_id = author.aut_id\
-//     INNER JOIN publisher ON book_mast.pub_id = publisher.pub_id\
-//     INNER JOIN category ON book_mast.cate_id = category.cate_id;', function (err, rows) {
-//         if (err) {
-//             console.log(err.toString());
-//             res.status(500).send('Database error');
-//             return;
-//         }
-//         res.setHeader('Access-Control-Allow-Origin', '*')
-//         res.send(rows);
-//     });
-// });
-
-
 app.get('/book_mast/bookFullData', function (req, res) {
+    conn.query('SELECT book_name, aut_name, book_price, pub_name, cate_descrip FROM book_mast\
+    INNER JOIN author ON book_mast.aut_id = author.aut_id\
+    INNER JOIN publisher ON book_mast.pub_id = publisher.pub_id\
+    INNER JOIN category ON book_mast.cate_id = category.cate_id;', function (err, rows) {
+        if (err) {
+            console.log(err.toString());
+            res.status(500).send('Database error');
+            return;
+        }
+        res.setHeader('Access-Control-Allow-Origin', '*')
+        res.send(rows);
+    });
+});
+
+
+app.get('/book_mast/bookCategoryData', function (req, res) {
     if (req.query.category == 'Science') {
         // conn.query(`SELECT book_mast.book_name FROM book_mast,category WHERE category.cate_descrip=? AND book_mast.cate_id=category.cate_id;`,[req.query.category],
         conn.query(`SELECT book_name, aut_name, book_price, pub_name, cate_descrip

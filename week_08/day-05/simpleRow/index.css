@@ -1,0 +1,33 @@
+.maint-content{
+    
+}
+
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-auto-rows: auto;
+    grid-template-rows: repeat(1, 200px);
+    background: purple;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 10px;
+    padding: 10px;
+    color: white;
+    font-size: 36px;
+}
+
+.container-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.left, .right{
+    background: yellow;
+}
+
+.middle{
+    background: green;
+}
