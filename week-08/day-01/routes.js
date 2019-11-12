@@ -3,7 +3,6 @@
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
-const PORT = 3000;
 const env = require('dotenv').config();
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -31,7 +30,7 @@ conn.connect(function (err) {
 app.get('/hello', function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*' && "Content-type", "application/json")
     res.status(200);
-    res.send('<p>hello world</p>');
+    res.send('hello world');
 });
 
 app.get('/posts', function (req, res) {
@@ -152,9 +151,4 @@ app.put('/posts/:id', function (req, res) {
     res.status(200);
 });
 
-
-
-
-app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
-});
+module.exports = app;

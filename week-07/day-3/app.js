@@ -5,10 +5,10 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 8080;
+
 app.use(bodyParser.json());
 app.use(express.static('assets'));
-app.set('port', (process.env.PORT || PORT));
+
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
@@ -109,7 +109,4 @@ function factorio(num) {
 // });
 
 
-
-app.listen(app.get("port"), () => {
-    console.log(`The server is up and running on ${PORT}`);
-});
+module.exports = app;
