@@ -1,0 +1,66 @@
+body {
+    background: #313841;
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 300px;
+}
+
+div {
+    display: flex;
+    width: 300px;
+    margin: 20px;
+    align-items: center;
+}
+
+button {
+    width: 30px;
+    height: 30px;
+    border: hidden;
+    color: white;
+    background: #1c242b;
+    z-index: 2;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.red:hover+Label {
+    width: 200px;
+    transition: width 1s, opacity 2.5s;
+    opacity: 1;
+}
+
+.green:hover+label {
+    width: 200px;
+    transition: width 1s, opacity 2.5s;
+    opacity: 1;
+}
+
+label {
+    display: flex;
+    border: hidden;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 0px;
+    opacity: 0;
+}
+
+.redLabel {
+    background: #f34541;
+}
+
+.greenLabel {
+    background: #38ba7d;
+}

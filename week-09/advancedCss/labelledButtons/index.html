@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>labelled buttons</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" type: "text/css" href="styles.css">
+</head>
+
+<body>
+    <form class="container">
+        <div>
+            <button class="trash"><i class="far fa-trash-alt"></i></button>
+            <label for="grey"></label>
+        </div>
+        <div class='first'>
+            <button data-action="delete" class="red"><i class="far fa-trash-alt"></i></button>
+            <label class="redLabel" for="red">Delete</label>
+        </div>
+        <div class='second'>
+            <button data-action="confirm" class="green"><i class="fas fa-check"></i></button>
+            <label class="greenLabel" for="green">Sure?</label>
+        </div>
+    </form>
+
+</body>
+
+</html>

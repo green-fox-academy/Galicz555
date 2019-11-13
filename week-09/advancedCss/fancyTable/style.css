@@ -1,0 +1,75 @@
+body {
+    background: #4396e9;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: #d5dde5;
+}
+
+table {
+    width: 800px;
+    height: 600px;
+    border-collapse: collapse;
+    font-size: 36px;
+    margin: 80px 0px;
+    border-style: hidden;
+}
+
+td, th {
+    border: 2px solid #9ea7af;
+    padding: 15px 30px;
+    height: 100px;
+}
+
+th {
+    border-bottom: 4px solid #9ea7af;
+    text-align: start;
+}
+
+td{
+    color: #666b84;
+}
+
+tbody {
+    background: #ebebeb;
+}
+
+tbody tr:nth-child(even) {
+    background: #ffffff;
+}
+
+thead tr th:nth-child(1){
+    background: black;
+    border-top-left-radius: 5px;
+}
+thead tr th:nth-child(2){
+    background: black;
+    border-top-right-radius: 5px;
+}   
+
+tbody tr:nth-child(5) td:nth-child(1){
+    border-bottom-left-radius: 5px;
+}
+tbody tr:nth-child(5) td:nth-child(2){
+    border-bottom-right-radius: 5px;
+} 
+
+.january .data-currency:before{
+    content:"$ 50,000.00";
+}
+
+.february .data-currency:before{
+    content:"$ 10,000.00";
+}
+
+.march .data-currency:before{
+    content:"$ 85,000.00";
+}
+
+.april .data-currency:before{
+    content:"$ 56,000.00";
+}
+
+.may .data-currency:before{
+    content:"$ 98,000.00";
+}
