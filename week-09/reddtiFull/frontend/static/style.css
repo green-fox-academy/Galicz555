@@ -23,7 +23,7 @@ header {
     grid-auto-rows: minmax(50px, auto);
     max-width: 100%;
     gap: 10px;
-    grid-template-areas: "header header header" "main main submit" "main main aside" "main main aside" "main main aside" "main main aside"
+    grid-template-areas: "header header header" "main main aside"
 }
 
 main {
@@ -37,7 +37,8 @@ main {
 aside {
     grid-area: aside;
     margin-right: 10px;
-    background: #f5f5f5;
+    background: #eeeeee;
+    height: auto;
 }
 
 .submit {
@@ -50,17 +51,25 @@ aside {
     font-weight: bolder;
     letter-spacing: 2px;
     height: 50px;
+    width: 100%;
     color: #eeeeee;
     word-spacing: 5px;
+    margin-bottom: 20px;
 }
 
 .shareAndDiscuss>p {
     text-align: center;
+    background: #f5f5f5;
+    margin-top: 0px;
 }
 
 ul>li {
     padding: 5px;
-    
+
+}
+
+.shareAndDiscuss{
+    background: #f5f5f5;
 }
 
 .about {
@@ -93,18 +102,19 @@ ul>li {
 }
 
 .up{
-    background-image: url(../frontend/assets/upvote.png);
+    background-image: url(../static/images/upvote.png);
     background-size: cover;
     width: 20px;
     height: 20px;
 }
+
 
 .vote{
     padding: 5px 0px;
 }
 
 .down{
-    background-image: url(../frontend/assets/downvote.png);
+    background-image: url(../static/images/downvote.png);
     background-size: cover;
     width: 20px;
     height: 20px;

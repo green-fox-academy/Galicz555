@@ -9,7 +9,11 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const jsonParser = bodyParser.json();
 const connection = mysql.createConnection({ multipleStatements: true });
 
-app.use(bodyParser.json());
+
+app.use(express.static(__dirname));
+app.use(jsonParser);
+app.use(urlencodedParser);
+
 
 let conn = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -26,6 +30,14 @@ conn.connect(function (err) {
     }
     console.log('Connection established');
 });
+
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + "/frontend/index.html");
+})
+app.get('/add', function (req, res) {
+    res.sendFile(__dirname + '/frontend/addPost.html');
+})
+
 
 app.get('/hello', function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*' && "Content-type", "application/json")
@@ -49,23 +61,23 @@ app.get('/posts', function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader("Content-Type", "application/json")
     res.status(200);
-    req.accepts("application/json")
+    req.accepts("application/json");
 });
 
 app.post('/posts', function (req, res) {
-    let sql = `INSERT INTO posts (title, url, timestamp) VALUES ("${req.body.title}", "${req.body.url}", NOW());`;
+    req.headers.accept["application/json"];
+    req.headers["content-type", "application/json"];
+    res.header('Access-Control-Allow-Origin', '*' && "Content-type", "application/json");
+    res.status(200);
+    let sql = `INSERT INTO posts (title, url, timestamp) VALUES ("${req.body.title}", "${req.body.url}", ${Date.now()});`;
     conn.query(sql, function (err, rows) {
         if (err) {
             console.log(err.toString());
             res.status(500).send('Database error');
             return;
         }
-        res.send(rows);
+        res.redirect("http://localhost:3000")
     });
-    req.headers.accept["application/json"];
-    req.headers["content-type", "application/json"];
-    res.setHeader('Access-Control-Allow-Origin', '*' && "Content-type", "application/json");
-    res.status(200);
 });
 
 // RÉSZLETES verzió ha 2 apit kérnek
@@ -100,9 +112,9 @@ app.post('/posts', function (req, res) {
 //RÖVIDEBB verzió
 app.put('/posts/:id/:action', function (req, res) {
     let x = 0;
-    if(req.params.action === "upvote"){
+    if (req.params.action === "upvote") {
         x = 1;
-    } else if(req.params.action === "downvote"){
+    } else if (req.params.action === "downvote") {
         x = -1;
     }
     let actionQuery = `UPDATE posts SET score=score+${connection.escape(x)} WHERE id =${connection.escape(req.params.id)}`;
@@ -113,9 +125,10 @@ app.put('/posts/:id/:action', function (req, res) {
         }
         req.headers.accept["application/json"];
         res.set({
-        'Access-Control-Allow-Origin': '*',
-        "Content-type": "application/json",
-        "Status": 200}).send(rows[1]);
+            'Access-Control-Allow-Origin': '*',
+            "Content-type": "application/json",
+            "Status": 200
+        }).send(rows[1]);
     });
 });
 
