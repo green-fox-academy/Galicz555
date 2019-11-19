@@ -90,6 +90,10 @@ ul>li {
     border-bottom: 1px solid #eeeeee;
 }
 
+.containerDisappear{
+    display: none;
+}
+
 .voting{
     display: flex;
     width: 5%;
@@ -108,13 +112,29 @@ ul>li {
     height: 20px;
 }
 
+.upped{
+    background-image: url(../static/images/upvoted.png);
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+}
+
 
 .vote{
     padding: 5px 0px;
+    font-weight: bolder;
+    font-size: 24px;
 }
 
 .down{
     background-image: url(../static/images/downvote.png);
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+}
+
+.downed{
+    background-image: url(../static/images/downvoted.png);
     background-size: cover;
     width: 20px;
     height: 20px;
@@ -139,10 +159,11 @@ ul>li {
     justify-content: center;
 }
 .actions{
+    display: flex;
     padding: 5px 0 0 0;
 }
 
 .actionLink{
-    padding: 0 10px 0 0;
+    padding: 0 10px 0 10px;
     text-decoration: none;
 }
