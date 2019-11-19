@@ -107,3 +107,4 @@ function goToAddPost() {
     window.location.assign('http://localhost:3000/add');
 }
 submitButton.addEventListener("click", goToAddPost);
+

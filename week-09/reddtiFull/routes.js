@@ -37,7 +37,9 @@ app.get('/', function (req, res) {
 app.get('/add', function (req, res) {
     res.sendFile(__dirname + '/frontend/addPost.html');
 })
-
+app.get('/edit.html', function (req, res) {
+    res.sendFile(__dirname + '/frontend/edit.html');    
+})
 
 app.get('/hello', function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*' && "Content-type", "application/json")
@@ -46,23 +48,35 @@ app.get('/hello', function (req, res) {
 });
 
 app.get('/posts', function (req, res) {
-    conn.query('SELECT * FROM posts;', function (err, rows) {
-        if (err) {
-            console.log(err.toString());
-            res.status(500).send('Database error');
-            return;
-        }
-        let data = { "posts": [] };
-        for (let i = 0; i < rows.length; i++) {
-            data.posts.push(rows[i]);
-        }
-        res.send(data);
-    });
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader("Content-Type", "application/json")
+    if (!req.query.id) {
+        conn.query('SELECT * FROM posts;', function (err, rows) {
+            if (err) {
+                console.log(err.toString());
+                res.status(500).send('Database error');
+                return;
+            }
+            let data = { "posts": [] };
+            for (let i = 0; i < rows.length; i++) {
+                data.posts.push(rows[i]);
+            }
+            res.send(data);
+        });
+    } else if (req.query.id) {
+        let result = `SELECT * FROM posts WHERE id="${req.query.id}"`;
+        conn.query(`${result}`, function (err, rows) {
+            if (err) {
+                console.log(err.toString());
+                res.status(500).send('Database error');
+                return;
+            }
+            res.send(rows[0]);
+        });
+    }
+    req.headers.accept["application/json"];
+    res.setHeader('Access-Control-Allow-Origin', '*' && "Content-type", "application/json")
     res.status(200);
-    req.accepts("application/json");
 });
+
 
 app.post('/posts', function (req, res) {
     req.headers.accept["application/json"];
