@@ -8,8 +8,9 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const jsonParser = bodyParser.json();
 const connection = mysql.createConnection({ multipleStatements: true });
+const path = require('path');
 
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, '../')));
 app.use(jsonParser);
 app.use(urlencodedParser);
 
@@ -30,16 +31,16 @@ conn.connect(function (err) {
 });
 
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + "/frontend/index.html");
+    res.sendFile('index.html', { root: path.join(__dirname, '../') });;
 })
 app.get('/add', function (req, res) {
-    res.sendFile(__dirname + '/frontend/addPost.html');
+    res.sendFile('addPost.html', { root: path.join(__dirname, '../') });
 })
 app.get('/edit.html', function (req, res) {
-    res.sendFile(__dirname + '/frontend/edit.html');
+    res.sendFile('edit.html', { root: path.join(__dirname, '../') });
 })
 app.get('/loginPage.html', function (req, res) {
-    res.sendFile(__dirname + '/frontend/loginPage.html');
+    res.sendFile('loginPage.html', { root: path.join(__dirname, '../') });
 })
 
 app.get('/hello', function (req, res) {

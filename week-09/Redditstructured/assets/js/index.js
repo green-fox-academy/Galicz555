@@ -93,7 +93,6 @@ main.addEventListener("click", function (event) {
         });
         number.innerHTML = parseInt(number.innerHTML) - 1;
     } else if (action == "removeLink") {
-        console.log(voteId)
         let container = event.path.filter(getRemoveLinkFromEvent)[0];
         container.className = "containerDisappear";
         fetch("http://localhost:3000/posts" + '/' + voteId, {

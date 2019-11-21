@@ -9,9 +9,11 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const jsonParser = bodyParser.json();
 const connection = mysql.createConnection({ multipleStatements: true });
 
+
 app.use(express.static(__dirname));
 app.use(jsonParser);
 app.use(urlencodedParser);
+
 
 let conn = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -36,10 +38,10 @@ app.get('/add', function (req, res) {
     res.sendFile(__dirname + '/frontend/addPost.html');
 })
 app.get('/edit.html', function (req, res) {
-    res.sendFile(__dirname + '/frontend/edit.html');
+    res.sendFile(__dirname + '/frontend/edit.html');    
 })
 app.get('/loginPage.html', function (req, res) {
-    res.sendFile(__dirname + '/frontend/loginPage.html');
+    res.sendFile(__dirname + '/frontend/loginPage.html');    
 })
 
 app.get('/hello', function (req, res) {
@@ -49,9 +51,11 @@ app.get('/hello', function (req, res) {
 });
 
 app.get('/posts', function (req, res) {
+    console.log("oláh")
     if (!req.query.id) {
         conn.query('SELECT * FROM posts;', function (err, rows) {
             if (err) {
+                console.log(err.toString());
                 res.status(500).send('Database error');
                 return;
             }
@@ -77,7 +81,9 @@ app.get('/posts', function (req, res) {
     res.status(200);
 });
 
+
 app.post('/posts', function (req, res) {
+    console.log(req)
     req.headers.accept["application/json"];
     req.headers["content-type", "application/json"];
     res.header('Access-Control-Allow-Origin', '*' && "Content-type", "application/json");
@@ -85,6 +91,7 @@ app.post('/posts', function (req, res) {
     let sql = `INSERT INTO posts (title, url, timestamp) VALUES ("${req.body.title}", "${req.body.url}", ${Date.now()});`;
     conn.query(sql, function (err, rows) {
         if (err) {
+            console.log(err.toString());
             res.status(500).send('Database error');
             return;
         }
@@ -93,8 +100,8 @@ app.post('/posts', function (req, res) {
 });
 
 app.post('/posts/:id', function (req, res) {
-    let update = `UPDATE posts SET title=${connection.escape(req.body.title)}, url=${connection.escape(req.body.url)} WHERE id =${connection.escape(req.params.id)}`;
-    let result = `SELECT * FROM posts WHERE id =${connection.escape(req.params.id)}`;
+    let update = `UPDATE posts SET title="${req.body.title}", url="${req.body.url}" WHERE id ="${req.params.id}"`;
+    let result = `SELECT * FROM posts WHERE id ="${req.params.id}"`;
     conn.query(`${update}; ${result}`, function (err, rows) {
         if (err) {
             console.log(err.toString());
@@ -108,6 +115,36 @@ app.post('/posts/:id', function (req, res) {
     res.status(200);
 });
 
+// RÉSZLETES verzió ha 2 apit kérnek
+// app.put('/posts/:id/upvote', function (req, res) {
+//     let upvote = `UPDATE posts SET score=score+1 WHERE id =${connection.escape(req.params.id)}`;
+//     let result = `SELECT * FROM posts WHERE id =${connection.escape(req.params.id)}`;
+//     conn.query(`${upvote}; ${result}`, function (err, rows) {
+//         if (err) {
+//             throw err;
+//         }
+//         res.send(rows[1]);
+//     });
+//     req.headers.accept["application/json"];
+//     res.setHeader('Access-Control-Allow-Origin', '*' && "Content-type", "application/json")
+//     res.status(200);
+// });
+
+// app.put('/posts/:id/downvote', function (req, res) {
+//     let downvote = `UPDATE posts SET score=score-1 WHERE id =${connection.escape(req.params.id)}`;
+//     let result = `SELECT * FROM posts WHERE id =${connection.escape(req.params.id)}`;
+//     conn.query(`${downvote}; ${result}`, function (err, rows) {
+//         if (err) {
+//             throw err;
+//         }
+//         res.send(rows[1]);
+//     });
+//     req.headers.accept["application/json"];
+//     res.setHeader('Access-Control-Allow-Origin', '*' && "Content-type", "application/json")
+//     res.status(200);
+// });
+
+//RÖVIDEBB verzió
 app.put('/posts/:id/:action', function (req, res) {
     let x = 0;
     if (req.params.action === "upvote") {
@@ -131,8 +168,8 @@ app.put('/posts/:id/:action', function (req, res) {
 });
 
 app.delete('/posts/:id', function (req, res) {
-    let result = `SELECT * FROM posts WHERE id =${connection.escape(req.params.id)}`;
-    let eliminate = `DELETE FROM posts WHERE id =${connection.escape(req.params.id)}`;
+    let result = `SELECT * FROM posts WHERE id ="${req.params.id}"`;
+    let eliminate = `DELETE FROM posts WHERE id ="${req.params.id}"`;
     conn.query(`${result}; ${eliminate}`, function (err, rows) {
         if (err) {
             console.log(err.toString());
@@ -145,6 +182,8 @@ app.delete('/posts/:id', function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*' && "Content-type", "application/json")
     res.status(200);
 });
+
+
 
 module.exports = app;
 
