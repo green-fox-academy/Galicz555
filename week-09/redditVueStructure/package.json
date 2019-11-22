@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "directories": {
-    "app": "app",
-    "assets": "assets"
+    "src": "src"
   },
   "scripts": {
     "start": "nodemon server"

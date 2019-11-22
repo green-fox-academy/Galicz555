@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type:"text/css" href="../assets/css/styleUpdate.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300&display=swap" rel="stylesheet">
+    <title>Reddit</title>
+</head>
+
+<body>
+    <div class="gridPosts">
+        <header>SPACE</header>
+        <form class="updatePostInputs" action="/posts" method="POST">
+            <main>
+                <p class="title">title</p>
+                <textarea id="title" type="text" name="title" required></textarea>
+                <p>URL</p>
+                <input id="url" type="url" name="url" required>
+            </main>
+            <button type="submit" class="realSubmit">SUBMIT</button>
+        </form>
+    </div>
+    <script src="../plugins/edit.js"></script>
+</body>
+
+</html>

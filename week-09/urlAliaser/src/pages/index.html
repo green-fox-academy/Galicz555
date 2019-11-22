@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type:"text/css" href="../assets/css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300&display=swap" rel="stylesheet">
+    <title>URL aliaser</title>
+</head>
+
+<body>
+    <div id="result"></div>
+    <form class="main" action="/api/links" method="POST">
+        <main>
+            <p>URL</p>
+            <input id="url" type="url" name="url" required>
+            <p class="title">Alias</p>
+            <input id="alias" type="text" name="alias" required></input>
+        </main>
+        <button id="button" type="submit" class="submit">Submit</button>
+    </form>
+    <script src="../plugins/index.js"></script>
+</body>
+
+</html>

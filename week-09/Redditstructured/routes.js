@@ -3,7 +3,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
-const env = require('dotenv').config();
+const env = require('./src/node_modules/dotenv').config();
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const jsonParser = bodyParser.json();

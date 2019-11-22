@@ -1,0 +1,169 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lato', sans-serif;
+    background: #eeeeee;
+}
+
+header {
+    grid-area: header;
+    background-image: url(https://wallpaperplay.com/walls/full/2/5/0/200799.jpg);
+    background-size: cover;
+    height: 300px;
+    color: #eeeeee;
+    text-align: center;
+    line-height: 300px;
+    letter-spacing: 100px;
+    font-size: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(50px, auto);
+    max-width: 100%;
+    gap: 10px;
+    grid-template-areas: "header header header" "main main aside"
+}
+
+main {
+    grid-area: main;
+    margin-top: 20px;
+    margin-left: 10px;
+    grid-template-columns: 2fr;
+    background: #ffffff;
+}
+
+aside {
+    grid-area: aside;
+    margin-right: 10px;
+    background: #eeeeee;
+    height: auto;
+}
+
+.submit {
+    grid-area: submit;
+    background: #4aa3df;
+    color: white;
+    margin-top: 20px;
+    margin-right: 10px;
+    border: none;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    height: 50px;
+    width: 100%;
+    color: #eeeeee;
+    word-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.shareAndDiscuss>p {
+    text-align: center;
+    background: #f5f5f5;
+    margin-top: 0px;
+}
+
+ul>li {
+    padding: 5px;
+
+}
+
+.shareAndDiscuss{
+    background: #f5f5f5;
+}
+
+.about {
+    padding: 5px 0px 0px 25px;
+    background: #fbfbfb;
+    font-weight: bolder;
+    height: 35px;
+    line-height: 30px;
+}
+
+.rSpace{
+    color: blue;
+}
+
+.container{
+    display: flex;
+    height: auto;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.containerDisappear{
+    display: none;
+}
+
+.voting{
+    display: flex;
+    width: 5%;
+    height: 100%;
+    flex-flow: column;
+    align-items: center;
+    padding: 10px;
+    color: #bbbbbb;
+    font-weight: bolder;
+}
+
+.up{
+    background-image: url(../images/upvote.png);
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+}
+
+.upped{
+    background-image: url(../images/upvoted.png);
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+}
+
+
+.vote{
+    padding: 5px 0px;
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+.down{
+    background-image: url(../images/downvote.png);
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+}
+
+.downed{
+    background-image: url(../images/downvoted.png);
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+}
+
+
+.path{
+    color: #333333;
+    text-decoration: none;
+    font-size: 24px;
+    width: 100%;
+}
+
+/* .path:visited{
+    color: #27ae60;
+
+} */
+
+.article{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+.actions{
+    display: flex;
+    padding: 5px 0 0 0;
+}
+
+.actionLink{
+    padding: 0 10px 0 10px;
+    text-decoration: none;
+}
