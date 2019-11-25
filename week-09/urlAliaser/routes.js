@@ -10,7 +10,7 @@ const jsonParser = bodyParser.json();
 const path = require('path');
 const headers = (req, res, next) => {
     req.headers.accept["application/json"];
-    res.setHeader('Access-Control-Allow-Origin', '*' && "Content-type", "application/json");
+    res.setHeader('Access-Control-Allow-Origin', "*");
     res.status(200);
     next();
 };
@@ -53,9 +53,8 @@ app.get('/', (req, res) => {
 //     });
 // });
 
-app.get('/aliaser', [headers], (req, res) => {
-    console.log(req.body)
-    let search = `SELECT * FROM aliaser WHERE alias=${conn.escape(req.body.alias)}`;
+app.get('/', [headers], (req, res) => {
+    let search = `SELECT * FROM aliaser;`;
     if (search) {
         conn.query(`${search}`, (err, rows) => {
             if (err) {
@@ -63,12 +62,13 @@ app.get('/aliaser', [headers], (req, res) => {
                 res.status(500).send('Database error');
                 return;
             }
-            res.send(rows[0]);
+            res.send(rows);
         });
     }
 });
 
 app.post('/api/links', [headers], (req, res) => {
+    console.log(req.body)
     let search = `SELECT * FROM aliaser WHERE alias=${conn.escape(req.body.alias)}`;
     conn.query(search, (err, rows) => {
         if (err) {
@@ -83,10 +83,11 @@ app.post('/api/links', [headers], (req, res) => {
                     res.status(500).send('Database error');
                     return;
                 }
-                res.send(rows[0]);
+                res.redirect("http://localhost:3000");
             });
         } else {
-            console.log("did nothing")
+            console.log("did nothing");
+            res.redirect("http://localhost:3000");
         }
     })
 });

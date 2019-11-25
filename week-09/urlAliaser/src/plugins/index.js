@@ -1,32 +1,38 @@
 'use strict'
 
-const url = "http://localhost:3000/aliaser";
+const url = "http://localhost:3000/";
 let result = document.getElementById("result");
 let getResult = document.getElementById("button");
+let form = document.getElementById("form")
 
+form.addEventListener("submit", function (event){
+    event.preventDefault();
+    let request = new XMLHttpRequest();
+    request.open("POST", "/api/links");
+    let data = event.formData;
+    console.log(event)
+    console.log(new FormData(form))
+    request.send(data);
 
-
-
-
-button.addEventListener("click", function () {
-    console.log("clicked")
-    fetch(url)
-    .then((resp) => resp.json())
-    .then(function (data) {
-        console.log(data);
-        if (data) {
-                result.innerHTML = `Your URL is aliased to <strong>${data.alias}</strong> and your secret code is <strong>${data.secretCode}</strong>`;
-        } else {
-            return result.innerHTML = `Your alias is already in use!`;
-        }
-    })
-    .catch(function (error) {
-        throw error
-    });
 })
 
-// let submitButton = document.querySelector("button");
-// function goToAddPost() {
-//     window.location.assign('http://localhost:3000/add');
-// }
-// submitButton.addEventListener("click", goToAddPost);
+// button.addEventListener("click", function (event) {
+//     console.log("clicked");
+//     console.log(event)
+//     fetch(url)
+//         .then((resp) => resp.json())
+//         .then(function (data) {
+//             console.log(data);
+//             for (let i = 0; i < data.length; i++) {
+//                 if (data[i].alias == event.path[1][1].value) {
+//                     result.innerHTML = `Your URL is aliased to <strong>${data[i].alias}</strong> and your secret code is <strong>${data[i].secretCode}</strong>`;
+//                 } else {
+//                     result.innerHTML = `Your alias is already in use!`;
+//                 }
+//             }
+//         })
+//         .catch(function (error) {
+//             throw error
+//         });
+// })
+
