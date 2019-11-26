@@ -3,11 +3,15 @@ body {
     padding: 0px;
     background: #eeeeee;
     height: 500px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .container {
     display: grid;
-    margin: 20%;
+    z-index: 999;
+    position: absolute;
+    top: 15%;
+    left: 15%;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     justify-items: center;
@@ -15,7 +19,7 @@ body {
     border-collapse: collapse;
     width: 70%;
     height: 400px;
-    grid-template-areas: "section header header header" "aside aside main main" "aside aside main main" "footer footer footer footer"
+    grid-template-areas: "section pic header header" "new pic main main" "aside aside main main" "footer footer footer footer"
 }
 
 .area {
@@ -27,43 +31,174 @@ section {
     grid-area: section;
     background-image: url(../img/foxplayer.png);
     background-repeat: no-repeat;
-    background-color: lavender;
+    background-color: #f5f5f5;
+    border-top-left-radius: 15px;
 }
 
 header {
     grid-area: header;
     display: flex;
     justify-content: space-between;
-    background-color: khaki;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-top-right-radius: 15px;
 }
 
 aside {
     grid-area: aside;
-    background: ivory;
+    background: #f5f5f5;
     display: flex;
     flex-flow: column;
 }
 
-#newPlaylist{
+.newPlaylist {
+    grid-area: new;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 60%;
+    background: #f5f5f5;
 }
-
 
 main {
     grid-area: main;
-    background: grey;
+    background: #f5f5f5;
 }
 
-.bin{
+.bin {
     display: flex;
     justify-content: space-between;
     padding: 3px 5px;
 }
 
-audio {
+.bin:nth-child(odd){
+    background: #eaeaea;
+}
+
+.pic {
+    grid-area: pic;
+    background: #f5f5f5;
+}
+
+.controller {
     grid-area: footer;
-    background: green;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.rewind {
+    background-image: url(../img/rewind.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 30px;
+    height: 20px;
+    margin: 0px 0px 0px 20px;
+}
+
+#play {
+    background-image: url(../img/pause.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    margin: auto 20px;
+}
+
+#pause {
+    background-image: url(../img/play.svg);
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    margin: auto 20px;
+}
+
+.forward {
+    background-image: url(../img/forward.svg);
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 20px;
+    background-size: cover;
+}
+
+#seekBar {
+    width: 250px;
+    height: 5px;
+    background-color: grey;
+    display: flex;
+    border-radius: 50px;
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+#fill {
+    height: 5px;
+    background-color: royalblue;
+    border-radius: 20px;
+}
+
+#handle {
+    width: 8px;
+    height: 6px;
+    background-color: royalblue;
+    border-radius: 50%;
+    margin-left: -5px;
+    transform: scale(2);
+}
+
+#poster {
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#shuffle {
+    background-image: url(../img/shuffle.svg);
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 20px;
+    background-size: contain;
+    margin-left: 20px;
+}
+
+#bg {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+
+#backGround {
+    height: 120vh;
+    width: 105%;
+    -webkit-filter: blur(20px);
+    position: absolute;
+    background-size: cover;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+#blackLayer{
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0,.2);
+    position: absolute;
+    z-index: 99;
+}
+
+#volume {
+    background-image: url(../img/volume.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    margin: auto 20px;
+}
+
+#songTitle{
+    font-size: 24px;
+    font-weight: bold;
 }

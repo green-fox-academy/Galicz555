@@ -10,20 +10,36 @@
 </head>
 
 <body>
+    <div id="bg">
+        <div id="blackLayer"></div>
+        <div id="backGround"></div>
+    </div>
     <div class="container">
+
         <section class="area logoNotifications"></section>
         <header class="area currentlyPlaying">
-            <div id="currentTitle">Skrillex</div>
+            <div id="songTitle"></div>
             <div id="addToStuffs">star and cross</div>
         </header>
+        <div id="poster" class="area pic"></div>
+        <div class="area newPlaylist">Playlist<div><img src="../assets/img/foxplayer.png"></div>
+        </div>
         <aside class="area playlists">
-            <div id="newPlaylist">Playlist<div><img src="../assets/img/foxplayer.png"></div>
-            </div>
             <div id="staticPlaylist"></div>
         </aside>
         <main class="area tracks"></main>
-        <audio controls><source src="../assets/music/Ars_Sonor_-_02_-_Never_Give_Up.mp3" type="audio/mpeg">
-        </audio>
+        <div class="area controller">
+            <div class="rewind"></div>
+            <div onclick=playOrPause() id="pause"></div>
+            <div class="forward"></div>
+            <div id="seekBar">
+                <div id="fill"></div>
+                <div id="handle"></div>
+            </div>
+            <div onclick=shuffle() id="shuffle"></div>
+            <div id="volume"></div>
+        </div>
+    </div>
     </div>
 
     <script src="../plugins/index.js"></script>

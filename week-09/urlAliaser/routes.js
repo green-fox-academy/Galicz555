@@ -35,25 +35,12 @@ conn.connect((err) => {
     console.log('Connection established');
 });
 
-
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/src/pages/index.html");
 })
 
-// app.post('/posts/:id', [headers], (req, res) => {
-//     let update = `UPDATE posts SET title=${conn.escape(req.body.title)}, url=${conn.escape(req.body.url)} WHERE id =${conn.escape(req.params.id)}`;
-//     let result = `SELECT * FROM posts WHERE id =${conn.escape(req.params.id)}`;
-//     conn.query(`${update}; ${result}`, (err, rows) => {
-//         if (err) {
-//             console.log(err.toString());
-//             res.status(500).send('Database error');
-//             return;
-//         }
-//         res.redirect("http://localhost:3000");
-//     });
-// });
 
-app.get('/', [headers], (req, res) => {
+app.get('/aliaser', [headers], (req, res) => {
     let search = `SELECT * FROM aliaser;`;
     if (search) {
         conn.query(`${search}`, (err, rows) => {
@@ -68,11 +55,10 @@ app.get('/', [headers], (req, res) => {
 });
 
 app.post('/api/links', [headers], (req, res) => {
-    console.log(req.body)
     let search = `SELECT * FROM aliaser WHERE alias=${conn.escape(req.body.alias)}`;
     conn.query(search, (err, rows) => {
         if (err) {
-            res.status(500).send('Database error');
+            res.status(500).send('Database error1');
             return;
         }
         if (!rows[0]) {
@@ -80,106 +66,88 @@ app.post('/api/links', [headers], (req, res) => {
             let sql = `INSERT INTO aliaser (url, alias, hitCount, secretCode) VALUES (${conn.escape(req.body.url)}, ${conn.escape(req.body.alias)}, 0, ${secretCode});`;
             conn.query(sql, (err, rows) => {
                 if (err) {
+                    res.status(500).send('Database error2');
+                    console.log(err)
+                    return;
+                }
+                res.send(rows);
+            });
+        } else {
+            console.log("did nothing");
+            res.send(rows);
+        }
+    })
+});
+
+app.get('/a/:alias', [headers], (req, res) => {
+    let search = `SELECT * FROM aliaser WHERE alias=${conn.escape(req.params.alias)};`;
+    conn.query(`${search}`, (err, rows) => {
+        if (err) {
+            console.log(err.toString());
+            res.status(500).send('Database error');
+            return;
+        }
+        if (rows[0]) {
+            let count = rows[0].hitCount;
+            count += 1;
+            let update = `UPDATE aliaser SET hitCount=${count} WHERE alias =${conn.escape(rows[0].alias)}`;
+            conn.query(`${update}`, (err, rows) => {
+                if (err) {
+                    console.log(err.toString());
                     res.status(500).send('Database error');
                     return;
                 }
                 res.redirect("http://localhost:3000");
             });
         } else {
-            console.log("did nothing");
-            res.redirect("http://localhost:3000");
+            res.sendStatus(404)
         }
-    })
+    });
 });
 
+app.get('/api/links', [headers], (req, res) => {
+    let search = `SELECT id, url, alias, hitCount FROM aliaser;`;
+    conn.query(`${search}`, (err, rows) => {
+        if (err) {
+            console.log(err.toString());
+            res.status(500).send('Database error');
+            return;
+        }
+        let data = [];
+        for (let i = 0; i < rows.length; i++) {
+            data.push(rows[i]);
+        }
+        res.send(data);
+    });
+});
 
-
-
-
-
-// app.get('/add', (req, res) => {
-//     res.sendFile(__dirname + '/src/pages/addPost.html');
-// })
-// app.get('/edit.html', (req, res) => {
-//     res.sendFile(__dirname + '/src/pages/edit.html');
-// })
-// app.get('/loginPage.html', (req, res) => {
-//     res.sendFile(__dirname + '/src/pages/loginPage.html');
-// })
-
-// app.get('/hello', (req, res) => {
-//     res.setHeader('Access-Control-Allow-Origin', '*' && "Content-type", "text")
-//     res.status(200);
-//     res.send('hello world');
-// });
-
-// app.get('/posts', [headers], (req, res) => {
-//     if (!req.query.id) {
-//         conn.query('SELECT * FROM posts;', (err, rows) => {
-//             if (err) {
-//                 res.status(500).send('Database error');
-//                 return;
-//             }
-//             let data = { "posts": [] };
-//             for (let i = 0; i < rows.length; i++) {
-//                 data.posts.push(rows[i]);
-//             }
-//             res.send(data);
-//         });
-//     } else if (req.query.id) {
-//         let result = `SELECT * FROM posts WHERE id="${req.query.id}"`;
-//         conn.query(`${result}`, (err, rows) => {
-//             if (err) {
-//                 console.log(err.toString());
-//                 res.status(500).send('Database error');
-//                 return;
-//             }
-//             res.send(rows[0]);
-//         });
-//     }
-// });
-
-// app.post('/posts', [headers], (req, res) => {
-//     let sql = `INSERT INTO posts (title, url, timestamp) VALUES ("${req.body.title}", "${req.body.url}", ${Date.now()});`;
-//     conn.query(sql, (err, rows) => {
-//         if (err) {
-//             res.status(500).send('Database error');
-//             return;
-//         }
-//         res.redirect("http://localhost:3000")
-//     });
-// });
-
-
-
-// app.put('/posts/:id/:action', [headers], (req, res) => {
-//     let x = 0;
-//     if (req.params.action === "upvote") {
-//         x = 1;
-//     } else if (req.params.action === "downvote") {
-//         x = -1;
-//     }
-//     let actionQuery = `UPDATE posts SET score=score+${conn.escape(x)} WHERE id =${conn.escape(req.params.id)}`;
-//     let resultQuery = `SELECT * FROM posts WHERE id =${conn.escape(req.params.id)}`;
-//     conn.query(`${actionQuery}; ${resultQuery}`, (err, rows) => {
-//         if (err) {
-//             throw err;
-//         }
-//         res.send(rows[1]);
-//     });
-// });
-
-// app.delete('/posts/:id', [headers], (req, res) => {
-//     let result = `SELECT * FROM posts WHERE id =${conn.escape(req.params.id)}`;
-//     let eliminate = `DELETE FROM posts WHERE id =${conn.escape(req.params.id)}`;
-//     conn.query(`${result}; ${eliminate}`, (err, rows) => {
-//         if (err) {
-//             console.log(err.toString());
-//             res.status(500).send('Database error');
-//             return;
-//         }
-//         res.send(rows[0]);
-//     });
-// });
+app.delete('/api/links/:id', [headers], (req, res) => {
+    let result = `SELECT * FROM aliaser WHERE id =${conn.escape(req.params.id)}`;
+    let eliminate = `DELETE FROM aliaser WHERE secretCode =${conn.escape(req.body.secretCode)}`;
+    conn.query(`${result}`, (err, rows) => {
+        if (err) {
+            console.log(err.toString());
+            res.status(500).send('Database error');
+            return;
+        }
+        if (!rows[0]) {
+            res.sendStatus(404);
+        } else {
+            conn.query(`${eliminate}`, (err, rows) => {
+                if (err) {
+                    console.log(err.toString());
+                    res.status(500).send('Database error');
+                    return;
+                }
+                if (!rows[0]) {
+                    res.sendStatus(403);
+                } else {
+                    res.sendStatus(204)
+                    res.send(rows[0]);
+                }
+            })
+        }
+    });
+});
 
 module.exports = app;

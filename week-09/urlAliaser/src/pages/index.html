@@ -12,14 +12,12 @@
 
 <body>
     <div id="result"></div>
-    <form id="form" class="main" action="/api/links" method="POST">
-        <main>
-            <p>URL</p>
-            <input id="url" type="url" name="url" required>
-            <p class="title">Alias</p>
-            <input id="alias" type="text" name="alias" required></input>
-        </main>
-        <button id="button" type="submit" class="submit">Submit</button>
+    <form enctype="multipart/form-data" id="myForm" class="form">
+        <label for="url">URL</label>
+        <input id="url" type="url" name="url" required>
+        <label for="alias">Alias</label>
+        <input id="alias" type="text" name="alias" required></input>
+        <button id="button" type="submit">Submit</button>
     </form>
     <script src="../plugins/index.js"></script>
 </body>
