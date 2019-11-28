@@ -17,26 +17,33 @@
     <div class="container">
 
         <section class="area logoNotifications"></section>
-        <header class="area currentlyPlaying">
+        <header class="area currentlyPlaying" id="header">
             <div id="songTitle"></div>
-            <div id="addToStuffs">star and cross</div>
+            <div id="bag">
+                <div id="addToStuffs"></div>
+                <div id="favorite"></div>
+            </div>
         </header>
         <div id="poster" class="area pic"></div>
-        <div class="area newPlaylist">Playlist<div><img src="../assets/img/foxplayer.png"></div>
+        <div class="area newPlaylist">Playlist<form enctype="multipart/form-data" id="myForm" class="form">
+                <input id="name" type="text" name="playlist" required></input>
+                <button id="button" class="button" type="submit">Submit</button>
+            </form>
+            <div id="playListPlus"></div>
         </div>
         <aside class="area playlists">
-            <div id="staticPlaylist"></div>
+            <div id="staticPlayList"></div>
         </aside>
         <main class="area tracks"></main>
         <div class="area controller">
-            <div class="rewind"></div>
-            <div onclick=playOrPause() id="pause"></div>
-            <div class="forward"></div>
+            <div id="rewind"></div>
+            <div id="pause"></div>
+            <div id="forward"></div>
             <div id="seekBar">
                 <div id="fill"></div>
                 <div id="handle"></div>
             </div>
-            <div onclick=shuffle() id="shuffle"></div>
+            <div id="shuffle"></div>
             <div id="volume"></div>
         </div>
     </div>

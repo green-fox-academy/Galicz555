@@ -1,5 +1,8 @@
 'use strict';
 
+const url = "http://localhost:3000/trackList";
+const staticList = "http://localhost:3000/playLists";
+
 function createNode(element) {
     return document.createElement(element);
 }
@@ -10,78 +13,210 @@ function append(parent, el) {
 
 let tracks = document.getElementsByTagName("main")[0];
 
-let musics = [
-    { title: "BlackHeart", pic: "/week-11/foxPlayer/src/assets/img/BlackHeart.jpg", time: "8:14", src: "/week-11/foxPlayer/src/assets/music/Two Steps From Hell - Blackheart [Music Video].mp3" },
-    { title: "Shake it off", pic: "/week-11/foxPlayer/src/assets/img/shakeitoff.png", time: "4:01", src: "/week-11/foxPlayer/src/assets/music/Taylor Swift - Shake It Off.mp3" },
-    { title: "Never give up", pic: "/week-11/foxPlayer/src/assets/img/something.jpg", time: "2:15", src: "/week-11/foxPlayer/src/assets/music/Ars_Sonor_-_02_-_Never_Give_Up.mp3" }]
-
-
-let tracksRecord = musics.map(function (element) {
-    let div = createNode('div');
-    div.className += " bin";
-    let divTitle = createNode('div');
-    let divTime = createNode('div');
-    divTitle.className += " titleName";
-    divTime.className += " exactTime";
-    divTitle.innerHTML = `${element.title}`;
-    divTime.innerHTML = `${element.time}`;
-    append(tracks, div);
-    append(div, divTitle);
-    append(div, divTime);
-})
-
 let songTitle = document.getElementById("songTitle");
 let fillBar = document.getElementById("fill");
 let picture = document.getElementById("poster");
 let backStage = document.getElementById("backGround");
+let play = document.getElementById("play");
 let pause = document.getElementById("pause");
+let randomSong = document.getElementById("shuffle");
 let volumePic = document.getElementById("volume");
+let staticPlayList = document.getElementById("staticPlayList");
+let forward = document.getElementById("forward");
+let rewind = document.getElementById("rewind");
 
-let song = new Audio();
-let currentSong = 0;
+let addPlaylistPlus = document.getElementById("playListPlus");
+let formPlaylist = document.getElementById("myForm");
 
-window.onload = playSong;
+let result = document.getElementById("result");
+let getResult = document.getElementById("button");
+let button = document.getElementById("button");
+let body = document.getElementsByTagName("body")[0];
+
+let bins = document.getElementsByClassName(" bin");
 
 
-function playSong() {
-    song.src = musics[currentSong].src;
-    songTitle.textContent = musics[currentSong].title;
-    picture.style.backgroundImage = `url(${musics[currentSong].pic})`;
-    backStage.style.backgroundImage = `url(${musics[currentSong].pic})`
-}
+fetch(url)
+    .then((resp) => resp.json())
+    .then(function (data) {
+        let song = new Audio();
+        let currentSong = 0;
+        let counter = 1;
+        data.map(function (element) {
+            let div = createNode('div');
+            div.className += " bin";
+            let divTitle = createNode('div');
+            let divTime = createNode('div');
+            div.setAttribute("id", element.id);
+            divTime.setAttribute("id", element.id);
+            divTitle.setAttribute("id", element.id);
+            divTitle.className += " titleName";
+            divTime.className += " exactTime";
+            divTitle.innerHTML = `${element.title}`;
+            divTime.innerHTML = `${element.time}`;
+            append(tracks, div);
+            append(div, divTitle);
+            append(div, divTime);
+            adjustSong();
+        })
 
-function playOrPause() {
-    if (song.paused) {
-        song.play();
-        pause.setAttribute("id", "play")
-    } else {
-        song.pause();
-        pause.setAttribute("id", "pause")
+        pause.addEventListener("click", function () {
+            playOrPause();
+        });
+
+        randomSong.addEventListener("click", function () {
+            shuffle();
+        })
+
+        forward.addEventListener("click", function () {
+            currentSong += 1;
+            if (currentSong == data.length) {
+                currentSong = 0
+            }
+            adjustSong();
+            playOrPause();
+        })
+
+        rewind.addEventListener("click", function () {
+            if (currentSong == 0) {
+                currentSong = data.length;
+            }
+            currentSong -= 1;
+            adjustSong();
+            playOrPause();
+        })
+
+        tracks.addEventListener("click", function (event) {
+            console.log(event.target.id)
+            if (event.target.className == " titleName" || event.target.className == " exactTime" || event.target.className == " bin") {
+                currentSong = parseInt(event.target.id) - 1;
+                adjustSong();
+                playOrPause();
+            }
+        })
+
+        function playOrPause() {
+            if (song.paused) {
+                song.play();
+                pause.setAttribute("id", "play")
+            } else {
+                song.pause();
+                pause.setAttribute("id", "pause")
+            }
+        }
+
+        song.addEventListener('timeupdate', function () {
+            let position = song.currentTime / song.duration;
+            fillBar.style.width = position * 100 + '%';
+        })
+
+        function adjustSong() {
+            song.src = data[currentSong].src;
+            songTitle.textContent = data[currentSong].title;
+            picture.style.backgroundImage = `url(${data[currentSong].pic})`;
+            backStage.style.backgroundImage = `url(${data[currentSong].pic})`;
+        }
+
+        function shuffle() {
+            currentSong = Math.floor(Math.random() * (data.length));
+            adjustSong();
+            playOrPause();
+        }
+
+        volumePic.addEventListener('click', function () {
+            if (counter == 0) {
+                counter += 1;
+                song.volume = 1;
+            } else if (counter == 1) {
+                counter += 1;
+                song.volume = 0.5;
+            } else if (counter == 2) {
+                song.volume = 0;
+                counter = 0;
+            }
+        })
+    })
+    .catch(function (error) {
+        throw error
+    });
+
+fetch(staticList)
+    .then((resp) => resp.json())
+    .then(function (data) {
+        data.map(function (element) {
+            let div = createNode('div');
+            div.className += " store";
+            let divName = createNode('div');
+            let divDelete = createNode('div');
+            divName.className += " listName";
+            divDelete.className += " deleteName";
+            divDelete.setAttribute("id", element.id);
+            divName.innerHTML = `${element.playlist}`;
+            append(staticPlayList, div);
+            append(div, divName);
+            append(div, divDelete);
+        })
+    })
+    .catch(function (error) {
+        throw error
+    });
+
+addPlaylistPlus.addEventListener("click", function () {
+    formPlaylist.setAttribute("style", "display:flex")
+});
+
+myForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let request = new XMLHttpRequest();
+    request.open("POST", "http://localhost:3000/playLists");
+    request.onload = function () {
     }
-}
+    let data = new FormData(myForm)
 
-song.addEventListener('timeupdate', function () {
-    let position = song.currentTime / song.duration;
-    fillBar.style.width = position * 100 + '%';
+    let json = JSON.stringify(Object.fromEntries(data));
+    request.setRequestHeader("Content-Type", "application/json");
+    request.send(json);
 })
 
-function shuffle() {
-    currentSong = Math.floor(Math.random() * (3));
-    playSong();
-    playOrPause();
+function getRemoveLinkFromEvent(item) {
+    return item.className == " store";
 }
 
-let counter = 1;
+let deleteDivs = document.getElementsByClassName(" deleteName");
 
-volumePic.addEventListener('click', function(){
-    if(counter == 0){
-        counter += 1;
-        song.volume = 1;
-    } else if(counter == 1){
-        counter += 1;
-        song.volume = 0.5;
-    } else if(counter == 2){
-        song.volume = 0;
-        counter = 0;
+body.addEventListener("click", function (event) {
+    let deleteId = event.target.id;
+    let action = event.target.className;
+    let lastId = (deleteDivs[deleteDivs.length - 1].id);
+    if (action == "button") {
+        formPlaylist.setAttribute("style", "display:none");
+        let data = new FormData(myForm)
+        console.log(data)
+        let jsonAdd = JSON.stringify(Object.fromEntries(data));
+        console.log(jsonAdd);
+        console.log(JSON.parse(jsonAdd));
+        let div = createNode('div');
+        div.className += " store";
+        let divName = createNode('div');
+        let divDelete = createNode('div');
+        divName.className += " listName";
+        divDelete.className += " deleteName";
+        divDelete.setAttribute("id", parseInt(lastId) + 1);
+        divName.innerHTML = `${JSON.parse(jsonAdd).playlist}`;
+        append(staticPlayList, div);
+        append(div, divName);
+        append(div, divDelete);
+        lastId = parseInt(lastId) + 1;
+    } else if (action == " deleteName") {
+        deleteId = event.target.id;
+        let temp = event.path.filter(getRemoveLinkFromEvent)[0];
+        temp.className = "storeDisappear";
+        console.log(deleteId)
+        fetch("http://localhost:3000/playLists" + '/' + deleteId, {
+            method: 'delete'
+        })
     }
 })
+
+
+

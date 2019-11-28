@@ -13,10 +13,9 @@ body {
     top: 15%;
     left: 15%;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
+    grid-template-rows: minmax(20px, 100px);
     justify-items: center;
     align-items: center;
-    border-collapse: collapse;
     width: 70%;
     height: 400px;
     grid-template-areas: "section pic header header" "new pic main main" "aside aside main main" "footer footer footer footer"
@@ -33,15 +32,18 @@ section {
     background-repeat: no-repeat;
     background-color: #f5f5f5;
     border-top-left-radius: 15px;
+    background-size: contain;
 }
 
-header {
+#header {
     grid-area: header;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #f5f5f5;
     border-top-right-radius: 15px;
+    border-left: 2px solid #eaeaea;
+    z-index: 9999999;
 }
 
 aside {
@@ -53,15 +55,52 @@ aside {
 
 .newPlaylist {
     grid-area: new;
+    font-size: 18px;
+    font-weight: bold;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #f5f5f5;
 }
 
+#myForm{
+    margin: 0px 5px;
+    display: none;
+}
+
+#playListPlus{
+    background-image: url(../img/add-plus-svgrepo-com.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: #353637;
+    width: 30px;
+    height: 20px;
+}
+
+#bag{
+    display: flex;
+}
+
+#addToStuffs{
+    background-image: url(../img/add-plus-svgrepo-com.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 20px;
+}
+
+#favorite{
+    background-image: url(../img/star.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 20px;
+}
+
 main {
     grid-area: main;
     background: #f5f5f5;
+    border-left: 2px solid #eaeaea;
 }
 
 .bin {
@@ -70,8 +109,38 @@ main {
     padding: 3px 5px;
 }
 
-.bin:nth-child(odd){
+.bin:nth-child(odd) {
     background: #eaeaea;
+}
+
+.bin:hover {
+    background-color: lightblue;
+}
+
+.store {
+    padding: 3px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.storeDisappear{
+    display: none;
+}
+
+.deleteName{
+    background-image: url(../img/cancel-close-svgrepo-com.svg);
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 10px;
+}
+
+.store:nth-child(odd) {
+    background-color: #eaeaea;
+}
+
+.store:hover {
+    background-color: lightblue;
 }
 
 .pic {
@@ -84,11 +153,12 @@ main {
     background: #ffffff;
     display: flex;
     align-items: center;
+    justify-content: center;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
 }
 
-.rewind {
+#rewind {
     background-image: url(../img/rewind.svg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -115,7 +185,7 @@ main {
     margin: auto 20px;
 }
 
-.forward {
+#forward {
     background-image: url(../img/forward.svg);
     background-repeat: no-repeat;
     width: 30px;
@@ -181,10 +251,10 @@ main {
     z-index: 1;
 }
 
-#blackLayer{
+#blackLayer {
     height: 100vh;
     width: 100%;
-    background-color: rgba(0,0,0,.2);
+    background-color: rgba(0, 0, 0, .2);
     position: absolute;
     z-index: 99;
 }
@@ -198,7 +268,7 @@ main {
     margin: auto 20px;
 }
 
-#songTitle{
+#songTitle {
     font-size: 24px;
     font-weight: bold;
 }
