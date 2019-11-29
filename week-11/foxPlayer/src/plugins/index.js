@@ -35,7 +35,6 @@ let body = document.getElementsByTagName("body")[0];
 
 let bins = document.getElementsByClassName(" bin");
 
-
 fetch(url)
     .then((resp) => resp.json())
     .then(function (data) {
@@ -167,15 +166,27 @@ addPlaylistPlus.addEventListener("click", function () {
 
 myForm.addEventListener("submit", (e) => {
     e.preventDefault();
+    let data = new FormData(myForm)
+    let json = JSON.stringify(Object.fromEntries(data));
     let request = new XMLHttpRequest();
     request.open("POST", "http://localhost:3000/playLists");
     request.onload = function () {
     }
-    let data = new FormData(myForm)
-
-    let json = JSON.stringify(Object.fromEntries(data));
     request.setRequestHeader("Content-Type", "application/json");
     request.send(json);
+
+
+    // fetch(url, {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-type": "application/json"
+    //     },
+    //     body: json
+    // })
+    // .then((resp) => resp.json())
+    // .then()
+    ///sort kapok
+    //delete, + sorrendszer generálása
 })
 
 function getRemoveLinkFromEvent(item) {
