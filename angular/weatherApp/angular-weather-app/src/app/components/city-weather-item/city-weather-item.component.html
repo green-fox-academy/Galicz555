@@ -1,0 +1,8 @@
+<div id="allData">
+    <div id="location">
+        <div id="placeName">{{ weatherByPlace.name }}</div>
+        <div id="placeCountry">{{ weatherByPlace.sys.country }}</div>
+    </div>
+    <div>{{ weatherByPlace.main.temp | number: '1.0-0'}}°C</div>
+    <div><img src="../../../assets/{{ weatherByPlace.weather[0].main }}.png"></div>
+</div>

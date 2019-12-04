@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    font-family: 'Lato', sans-serif;
+    background-color: #ecf0f1;
+    color: #34495e;
+    margin-left: 600px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+#container{
+    width: 350px;
+    display: flex;
+    text-align: justify;
+}
+
+
+#allData{
+    display: flex;
+    margin: 20px;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 1px 1px 1px black;
+
+}
+
+#allData > div{
+    margin: 20px;
+    width: 500px;
+    height: auto;
+    
+}
+
+#placeCountry{
+    font-size: 16px;
+}
+
+img{
+    width: 90px;
+    height: 90px;
+}
