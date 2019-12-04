@@ -1,4 +1,4 @@
-import { WeatherByPlace } from './../../models/weatherByPlace';
+import { modelForWeather } from '../../models/item';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./city-weather-item.component.css']
 })
 export class CityWeatherItemComponent implements OnInit {
-  @Input() weatherByPlace: WeatherByPlace;
+  @Input() item: modelForWeather;
 
   constructor() { }
 

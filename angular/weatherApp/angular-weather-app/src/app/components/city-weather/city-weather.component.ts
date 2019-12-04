@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherByPlace } from '../../models/weatherByPlace';
-import { GetWeatherService } from "../../services/get-weather.service"
+import { modelForWeather } from '../../models/item';
+import { weatherService } from "../../services/get-weather.service"
 
 @Component({
   selector: 'app-city-weather',
@@ -8,13 +8,13 @@ import { GetWeatherService } from "../../services/get-weather.service"
   styleUrls: ['./city-weather.component.css']
 })
 export class CityWeatherComponent implements OnInit {
-  weatherByPlaces:WeatherByPlace[]
+  list:modelForWeather[]
 
-  constructor(private getWeatherService:GetWeatherService) { }
+  constructor(private weatherService:weatherService) { }
 
   ngOnInit() {
-    this.getWeatherService.getWeathers().subscribe(weatherByPlaces => {
-      this.weatherByPlaces = weatherByPlaces;
+    this.weatherService.getWeathers().subscribe(list => {
+      this.list = list;
     });
   }
 
