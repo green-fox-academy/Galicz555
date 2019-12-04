@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherByPlace } from '../../models/weatherByPlace';
 import { GetWeatherService } from "../../services/get-weather.service"
-// import { setMaxListeners } from 'cluster';
 
 @Component({
   selector: 'app-city-weather',
@@ -15,7 +14,7 @@ export class CityWeatherComponent implements OnInit {
 
   ngOnInit() {
     this.getWeatherService.getWeathers().subscribe(weatherByPlaces => {
-      this.weatherByPlaces = weatherByPlaces['list'];
+      this.weatherByPlaces = weatherByPlaces;
     });
   }
 
