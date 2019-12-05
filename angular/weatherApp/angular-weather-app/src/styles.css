@@ -15,6 +15,15 @@ body{
     text-align: justify;
 }
 
+.storage{
+    padding-left: 30px
+}
+
+.form-group{
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+}
 
 #allData{
     display: flex;
@@ -42,4 +51,8 @@ body{
 img{
     width: 90px;
     height: 90px;
+}
+
+.btn-primary{
+    margin-left: 30px
 }

@@ -1,0 +1,15 @@
+<div class="storage">
+    <h1>Here you can search!</h1>
+    <form class="bag" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">City's Name</label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name">
+            <button type="submit" class="btn btn-success">Search</button>
+        </div>
+    </form>
+    <app-city-weather-search [hidden]="!submitted" *ngFor="let element of all" [element]="element">
+    </app-city-weather-search>
+    <button class="btn btn-primary" [hidden]="!submitted" (click)="submitted=false">Disappear</button>
+    <app-city-weather-item [hidden]="submitted" *ngFor="let item of list" [item]="item">
+    </app-city-weather-item>
+</div>

@@ -33,8 +33,11 @@ export class weatherService {
       ));
   }
 
-  getWeather(): Observable<modelForWeather[]> {
-    return this.http.get<modelForWeather[]>(environment.weathersUrl);
+  getWeather(cityName): Observable<modelForWeather> {
+    return this.http
+      .get<modelForWeather>(environment.weatherUrlName + cityName + environment.weatherUnits + environment.weatherApiKey)
+      .pipe(map(
+        (result) => { return result }
+      ));
   }
 }
-
