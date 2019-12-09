@@ -1,6 +1,6 @@
-<p>specific-forecast-item works!</p>
-<div id="allData" *ngIf="element !== undefined">
+<div id="foreCast">
     <div id="location">
-        <div id="placeName">{{ element.name }}</div>
+        <div><img src="../../../assets/{{ element.weather[0].main }}.png"></div>
+        <div>{{element.main.temp | number: '1.0-0'}}°C</div>
     </div>
 </div>

@@ -1,1 +1,4 @@
-<app-specific-forecast-item *ngFor="let element of list" [element]="element"></app-specific-forecast-item>
+<div id="placeName">{{ cityName }}</div>
+<div *ngFor="let element of list; let i = index">
+    <app-specific-forecast-item *ngIf="i % 8 === 0" [element] = "element"></app-specific-forecast-item>
+</div>

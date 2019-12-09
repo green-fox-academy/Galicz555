@@ -53,7 +53,7 @@ export class weatherService {
       .pipe(map(
         (result) => {
           if (result) {
-            return result
+            return result;
           } else {
             throw new Error("deliberate 404 error")
           }
