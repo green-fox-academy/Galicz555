@@ -1,5 +1,1 @@
-<div id="allData" *ngIf="element !== undefined">
-    <div id="location">
-        <div id="placeName">{{ element.name }}</div>
-    </div>
-</div>
+<app-specific-forecast-item *ngFor="let element of list" [element]="element"></app-specific-forecast-item>

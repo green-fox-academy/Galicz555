@@ -49,7 +49,7 @@ export class weatherService {
 
   hourlyCast(cityId): Observable<modelForWeather> {
     return this.http
-      .get<modelForWeather>(environment.fiveDayForecast + cityId + environment.weatherUnits + environment.weatherApiKey)
+      .get<modelForWeather[]>(environment.fiveDayForecast + cityId + environment.weatherUnits + environment.weatherApiKey)
       .pipe(map(
         (result) => {
           if (result) {

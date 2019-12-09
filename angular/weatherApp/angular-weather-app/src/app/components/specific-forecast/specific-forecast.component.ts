@@ -11,6 +11,8 @@ import { modelForWeather } from './../../models/item';
 })
 export class SpecificForecastComponent implements OnInit {
   @Input() element: modelForWeather;
+  list: modelForWeather[];
+  cityName: string;
 
   constructor(  private route: ActivatedRoute,
     private router: Router,

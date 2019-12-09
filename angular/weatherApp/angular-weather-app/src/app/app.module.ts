@@ -10,6 +10,7 @@ import { CityWeatherItemComponent } from './components/city-weather-item/city-we
 import { CityWeatherSearchComponent } from './components/city-weather-search/city-weather-search.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { SpecificForecastComponent } from './components/specific-forecast/specific-forecast.component';
+import { SpecificForecastItemComponent } from './components/specific-forecast-item/specific-forecast-item.component';
 
 
 
@@ -20,7 +21,8 @@ import { SpecificForecastComponent } from './components/specific-forecast/specif
     CityWeatherItemComponent,
     CityWeatherSearchComponent,
     SpecificForecastComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    SpecificForecastItemComponent
   ],
   imports: [
     BrowserModule,
