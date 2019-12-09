@@ -1,4 +1,4 @@
-<div id="allData">
+<div id="allData" *ngIf="item !== undefined">
     <div id="location">
         <div id="placeName">{{ item.name }}</div>
         <div id="placeCountry">{{ item.sys.country }}</div>

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CityWeatherComponent } from './city-weather.component';
+import { SearchFormComponent } from 'src/app/search-form/search-form.component';
 
 describe('CityWeatherComponent', () => {
   let component: CityWeatherComponent;
@@ -8,7 +9,10 @@ describe('CityWeatherComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CityWeatherComponent ]
+      declarations: [
+        CityWeatherComponent,
+        SearchFormComponent
+      ]
     })
     .compileComponents();
   }));

@@ -13,17 +13,21 @@ import { Component, OnInit } from '@angular/core';
 export class SearchFormComponent implements OnInit {
   all: modelForWeather[];
   list: modelForWeather[];
-  name: string;
+  cityName: string;
   submitted = false;
 
   onSubmit() {
     this.submitted = true;
-    this.weatherService.getWeather(this.name).subscribe(all => {
+    this.weatherService.getWeather(this.cityName).subscribe(all => {
       this.all = [all];
     });
   }
 
   constructor(private weatherService: weatherService) {
+    this.cityName = "London";
+    this.submitted = false;
+    this.all = [];
+    this.list = [];
   }
 
   ngOnInit() {
@@ -31,6 +35,4 @@ export class SearchFormComponent implements OnInit {
       this.list = list;
     });
   }
-
-
 }

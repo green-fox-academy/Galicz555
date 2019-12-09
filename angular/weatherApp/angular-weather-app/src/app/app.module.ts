@@ -9,6 +9,9 @@ import { CityWeatherComponent } from './components/city-weather/city-weather.com
 import { CityWeatherItemComponent } from './components/city-weather-item/city-weather-item.component';
 import { CityWeatherSearchComponent } from './components/city-weather-search/city-weather-search.component';
 import { SearchFormComponent } from './search-form/search-form.component';
+import { SpecificForecastComponent } from './components/specific-forecast/specific-forecast.component';
+
+
 
 @NgModule({
   declarations: [
@@ -16,13 +19,14 @@ import { SearchFormComponent } from './search-form/search-form.component';
     CityWeatherComponent,
     CityWeatherItemComponent,
     CityWeatherSearchComponent,
+    SpecificForecastComponent,
     SearchFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

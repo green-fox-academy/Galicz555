@@ -8,9 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CityWeatherSearchComponent implements OnInit {
   @Input() element: modelForWeather;
-  
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
 

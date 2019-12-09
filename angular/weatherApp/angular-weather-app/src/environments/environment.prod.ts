@@ -4,5 +4,6 @@ export const environment = {
   // weatherUrl: 'http://api.openweathermap.org/data/2.5/weather?id=5809844&units=metric&APPID=99e6d0a05cfd3004b8b02a9ddfafa8b7',
   weatherUrlName: 'http://api.openweathermap.org/data/2.5/weather?q=',
   weatherUnits: '&units=metric',
-  weatherApiKey:"&APPID=99e6d0a05cfd3004b8b02a9ddfafa8b7"
+  weatherApiKey:"&APPID=99e6d0a05cfd3004b8b02a9ddfafa8b7",
+  fiveDayForecast: 'http://api.openweathermap.org/data/2.5/forecast?id=',
 };
